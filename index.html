@@ -70,7 +70,6 @@
 
     <style>
         /* Estilos Premium e Animações */
-        /* Correção de Scroll: overflow-x-hidden no body, não html */
         body { overflow-x: hidden; width: 100%; }
         
         ::-webkit-scrollbar { width: 8px; }
@@ -275,11 +274,11 @@
     </header>
 
     <!-- Hero Section with Form -->
-    <!-- Adjusted padding top for thinner header -->
-    <section class="relative min-h-[100dvh] flex items-center pt-28 pb-12 lg:pt-40 lg:pb-24 overflow-hidden">
-        <div id="hero-bg" class="absolute inset-0 z-0 scale-105">
-            <!-- NEW IMAGE: Janitorial Cart in Lobby -->
-            <img src="https://palmettocommercialservices.com/wp-content/uploads/2021/06/local-cleaning-business-janitorial-cart-in-lobby-1200x600-1.jpg" class="w-full h-full object-cover parallax-section" alt="Janitorial Service in Commercial Lobby">
+    <!-- ADDED bg-slate-900 as fallback color to prevent white screen -->
+    <section class="relative min-h-[100dvh] flex items-center pt-28 pb-12 lg:pt-40 lg:pb-24 overflow-hidden bg-slate-900">
+        <!-- CHANGED from IMG tag to DIV with background-image for stability -->
+        <div id="hero-bg" class="absolute inset-0 z-0 scale-105" 
+             style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
             
             <!-- OVERLAY: Keeping it light (40%) to show off the clean space -->
             <div class="absolute inset-0 bg-brand-dark/40 z-10"></div>
@@ -288,39 +287,39 @@
         </div>
         
         <div class="container mx-auto px-4 lg:px-6 relative z-20">
-            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
                 <!-- Hero Copy -->
-                <div class="lg:col-span-7 reveal active text-center lg:text-left pt-6 lg:pt-0">
+                <div class="lg:col-span-7 reveal active text-center lg:text-left pt-12 lg:pt-0">
                     <div class="inline-flex items-center gap-3 mb-6 bg-brand-gold/10 border border-brand-gold/20 px-3 py-1.5 lg:px-4 lg:py-2 rounded-full backdrop-blur-sm">
                         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span class="text-brand-gold font-bold text-[10px] lg:text-xs uppercase tracking-[0.2em]">Serving Metro Atlanta | New Clients</span>
+                        <span class="text-brand-gold font-bold text-[10px] lg:text-xs uppercase tracking-[0.2em]">Metro Atlanta</span>
                     </div>
                     
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-white leading-tight mb-4 lg:mb-6">
+                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-serif text-white leading-tight mb-4 lg:mb-6 drop-shadow-lg">
                         Atlanta’s Gold Standard in<br>
                         <span class="italic text-gold-gradient">Commercial Cleaning.</span>
                     </h1>
                     
-                    <p class="text-sm sm:text-base md:text-lg text-slate-300 max-w-xl leading-relaxed font-light mb-6 lg:mb-8 mx-auto lg:mx-0">
+                    <p class="text-base md:text-lg text-slate-200 max-w-xl leading-relaxed font-light mb-8 lg:mb-10 mx-auto lg:mx-0 drop-shadow-md">
                         From Buckhead to Midtown, we keep Atlanta’s businesses spotless. Trust the premier janitorial service committed to your company's image.
                     </p>
 
-                     <!-- NEW HERO BADGES & CTA AREA -->
+                     <!-- NEW HERO BADGES & CTA AREA (SCROLLABLE ON MOBILE) -->
                     <div class="flex flex-col gap-6">
                         
                         <!-- Primary Action -->
                         <div class="flex justify-center lg:justify-start">
-                            <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="group relative px-8 py-3.5 rounded-full bg-transparent border-2 border-brand-gold text-brand-gold font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 w-full sm:w-auto overflow-hidden">
+                            <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="group relative px-8 py-3.5 rounded-full bg-brand-gold/10 border-2 border-brand-gold text-brand-gold font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 w-full sm:w-auto overflow-hidden">
                                 <span class="relative z-10 flex items-center justify-center gap-2">Explore Services <i class="ph ph-arrow-down"></i></span>
                             </button>
                         </div>
 
-                        <!-- High-End Trust Badges -->
-                        <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                        <!-- High-End Trust Badges (Horizontal Scroll on Mobile) -->
+                        <div class="flex overflow-x-auto pb-4 lg:pb-0 gap-4 snap-x snap-mandatory lg:flex-wrap justify-start -mx-4 px-4 lg:mx-0 lg:px-0 no-scrollbar">
                             
-                            <!-- Badge 1: INSURED (High Priority) -->
-                            <div class="flex items-center gap-3 bg-brand-gold/10 backdrop-blur-xl border border-brand-gold/40 rounded-xl px-4 py-3 shadow-[0_0_20px_rgba(212,175,55,0.15)] hover:bg-brand-gold/20 transition-all cursor-default flex-1 sm:flex-none min-w-[180px]">
+                            <!-- Badge 1 -->
+                            <div class="flex items-center gap-3 bg-brand-dark/40 backdrop-blur-xl border border-brand-gold/40 rounded-xl px-4 py-3 shadow-lg flex-none min-w-[200px] snap-center">
                                 <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-gold to-yellow-600 flex items-center justify-center text-brand-dark shadow-lg shrink-0">
                                     <!-- FIXED: Inline SVG Shield Icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-6 h-6 fill-brand-dark">
@@ -333,10 +332,9 @@
                                 </div>
                             </div>
 
-                            <!-- Badge 2: GOOGLE REVIEWS -->
-                            <div class="flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 hover:border-white/20 transition-all cursor-default flex-1 sm:flex-none min-w-[180px]">
+                            <!-- Badge 2 -->
+                            <div class="flex items-center gap-3 bg-brand-dark/40 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 flex-none min-w-[200px] snap-center">
                                 <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg shrink-0 p-2">
-                                    <!-- FIXED: Inline SVG Google Logo -->
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-full h-full">
                                         <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
                                         <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6.19c4.51-4.18 7.09-10.36 7.09-17.84z"></path>
@@ -349,29 +347,15 @@
                                     <div class="flex text-yellow-400 text-xs mb-1">
                                         <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
                                     </div>
-                                    <span class="text-[10px] font-bold text-slate-200 uppercase tracking-wider leading-none">5.0 Top Rated Pro</span>
+                                    <span class="text-[10px] font-bold text-slate-200 uppercase tracking-wider leading-none">5.0 Top Rated</span>
                                 </div>
                             </div>
 
-                            <!-- Badge 3: SATISFACTION (Optional on very small screens) -->
-                            <div class="hidden sm:flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 hover:border-white/20 transition-all cursor-default min-w-[160px]">
-                                <div class="w-10 h-10 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400 shrink-0">
-                                    <!-- FIXED: Inline SVG Check Icon -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-6 h-6 fill-green-400">
-                                        <path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="flex flex-col">
-                                    <span class="text-[10px] font-bold text-green-400 uppercase tracking-wider mb-0.5">Risk Free</span>
-                                    <span class="text-xs font-bold text-white uppercase tracking-wide leading-none">Satisfaction<br>Guarantee</span>
-                                </div>
-                            </div>
-                            
                         </div>
                     </div>
                 </div>
 
-                <!-- Hero Form (HIGH CONVERSION OPTIMIZED) -->
+                <!-- Hero Form (MOBILE: Stacked below, compact padding) -->
                 <div class="lg:col-span-5 reveal active delay-200 w-full max-w-md mx-auto lg:max-w-full">
                     <div class="bg-white rounded-2xl shadow-[0_30px_70px_-10px_rgba(0,0,0,0.6)] overflow-hidden relative transform transition-transform hover:scale-[1.01] duration-500 border border-white/20">
                         
