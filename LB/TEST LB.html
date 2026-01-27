@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- LOCAL SEO OTIMIZADO PARA ATLANTA -->
+    <title>LB Cleaners | #1 Commercial Cleaning Services in Atlanta & Metro Area</title>
+    <meta name="description" content="Premier commercial cleaning and janitorial services in Atlanta, GA. Serving Metro Atlanta, Buckhead, Midtown & beyond with 5-star office cleaning. Licensed & Insured.">
+    <meta name="keywords" content="commercial cleaning Atlanta, office cleaning Metro Atlanta, janitorial services Atlanta GA, business cleaning Buckhead, corporate housekeeping Marietta">
+    <meta name="author" content="LB Cleaners">
+    <meta name="geo.region" content="US-GA" />
+    <meta name="geo.placename" content="Atlanta" />
+    
+    <!-- Schema.org para Negócios Locais -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "LB Cleaners & Service",
+      "image": "https://i.imgur.com/Qio6Rij.png",
+      "telephone": "+14703804785",
+      "email": "lbcleanersandservices@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Atlanta",
+        "addressRegion": "GA",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Atlanta", "Metro Atlanta", "Buckhead", "Midtown", "Sandy Springs", "Roswell", "Alpharetta", "Marietta"],
+      "priceRange": "$$",
+      "description": "The Gold Standard in Commercial Cleaning for Atlanta businesses."
+    }
+    </script>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuração de Cores -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',       
+                            goldLight: '#F3E5AB',  
+                            dark: '#0B1120',       
+                            navy: '#162032',       
+                            surface: '#F8FAFC',    
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos Premium e Animações */
+        /* Correção de Scroll: overflow-x-hidden no body, não html */
+        body { overflow-x: hidden; width: 100%; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B1120; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* NAV LINK HOVER EFFECT */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Botão Premium */
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #B89628 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #E6C200 0%, #D4AF37 100%);
+        }
+        .btn-gold::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.6s;
+        }
+        .btn-gold:hover::after {
+            left: 100%;
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine { to { background-position: 200% center; } }
+
+        .tilt-card { perspective: 1000px; transform-style: preserve-3d; }
+        
+        /* FAQ Details Animation */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .5s ease-in-out; }
+        @keyframes sweep {
+            0%    {opacity: 0; margin-top: -10px}
+            100%  {opacity: 1; margin-top: 0px}
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 40s linear infinite;
+            width: max-content;
+        }
+        .pause-on-hover:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+        .marquee-mask {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        /* Badge Glow */
+        .badge-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        /* Input Focus Ring Custom */
+        .input-ring:focus-within {
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            border-color: #D4AF37;
+        }
+
+        /* Parallax Utilities */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @media (max-width: 768px) {
+            .parallax-section {
+                background-attachment: scroll; /* Disable fixed attachment on mobile for performance */
+            }
+        }
+
+        /* DYNAMIC MODAL ANIMATIONS */
+        .modal-backdrop {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        
+        @keyframes modalSpring {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            60% { opacity: 1; transform: scale(1.02) translateY(0); }
+            100% { transform: scale(1) translateY(0); }
+        }
+        
+        .modal-animate-enter {
+            animation: modalSpring 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        /* Staggered Content Animation */
+        .stagger-in {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-checkmark { width: 80px; height: 80px; margin: 0 auto; }
+        .check-icon { width: 80px; height: 80px; position: relative; border-radius: 50%; box-sizing: content-box; border: 4px solid #4CAF50; }
+        .check-icon::before { top: 3px; left: -2px; width: 30px; transform-origin: 100% 50%; border-radius: 100px 0 0 100px; }
+        .check-icon::after { top: 0; left: 30px; width: 60px; transform-origin: 0 50%; border-radius: 0 100px 100px 0; animation: rotate-circle 4.25s ease-in; }
+    </style>
+</head>
+<body class="font-sans text-slate-600 antialiased bg-brand-surface selection:bg-brand-gold selection:text-brand-dark overflow-x-hidden">
+
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-brand-gold z-[60] w-0 transition-all duration-100 ease-out"></div>
+
+    <!-- Navigation (PREMIUM: Transparent at top, White on scroll) -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4 bg-transparent border-b border-white/10 text-white">
+        <div class="container mx-auto px-4 lg:px-6">
+            <!-- Height: h-16 (mobile) lg:h-24 (desktop) -->
+            <div id="nav-container" class="flex justify-between items-center h-16 lg:h-24 transition-all duration-500">
+                <!-- LOGO -->
+                <a href="#" class="flex items-center gap-3 group relative h-full py-1 overflow-hidden">
+                    <img id="nav-logo"
+                         src="https://i.imgur.com/Qio6Rij.png" 
+                         alt="LB Cleaners Logo" 
+                         class="h-full w-auto object-contain scale-[1.3] transition-transform duration-300 group-hover:scale-[1.4] brightness-0 invert"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50?text=LB+Cleaners';">
+                </a>
+
+                <nav class="hidden lg:flex items-center space-x-8 xl:space-x-12 text-sm font-bold tracking-wide uppercase">
+                    <a href="#services" class="nav-link hover:text-brand-gold transition-colors duration-300 text-white">Services</a>
+                    <a href="#industries" class="nav-link hover:text-brand-gold transition-colors duration-300 text-white">Industries</a>
+                    <a href="#testimonials" class="nav-link hover:text-brand-gold transition-colors duration-300 text-white">Reviews</a>
+                    <a href="#faq" class="nav-link hover:text-brand-gold transition-colors duration-300 text-white">FAQ</a>
+                    <!-- Clickable Phone Number in Nav -->
+                    <a id="nav-phone" href="tel:+14703804785" class="flex items-center gap-2 font-extrabold hover:text-brand-gold transition-colors border px-5 py-2.5 rounded-full text-xs xl:text-sm shadow-sm hover:shadow-md text-white border-white/20 bg-white/10">
+                        <i class="ph ph-phone-call text-lg text-brand-gold"></i> +1 (470) 380-4785
+                    </a>
+                </nav>
+
+                <div class="hidden lg:block">
+                    <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'})" class="btn-gold text-brand-dark px-8 py-3.5 rounded shadow-lg font-bold text-xs uppercase tracking-widest hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        Get a Quote
+                    </button>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden text-3xl focus:outline-none p-2 rounded-lg transition-colors text-white hover:bg-white/10">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-2xl h-[calc(100vh-100px)] overflow-y-auto text-slate-800">
+            <div class="flex flex-col p-8 space-y-8 text-center">
+                <a href="#services" class="text-lg font-bold hover:text-brand-gold border-b border-slate-50 pb-4">Services</a>
+                <a href="#industries" class="text-lg font-bold hover:text-brand-gold border-b border-slate-50 pb-4">Industries</a>
+                <a href="#testimonials" class="text-lg font-bold hover:text-brand-gold border-b border-slate-50 pb-4">Reviews</a>
+                <a href="tel:+14703804785" class="text-brand-gold text-xl font-black flex justify-center gap-2 pb-4"><i class="ph ph-phone"></i> Call Now</a>
+                <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'})" class="btn-gold w-full text-brand-dark py-5 rounded-xl font-bold text-lg shadow-xl">Request Quote</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Form -->
+    <!-- Adjusted padding top for thinner header -->
+    <section class="relative min-h-[100dvh] flex items-center pt-28 pb-12 lg:pt-40 lg:pb-24 overflow-hidden">
+        <div id="hero-bg" class="absolute inset-0 z-0 scale-105">
+            <!-- NEW IMAGE: Janitorial Cart in Lobby -->
+            <img src="https://palmettocommercialservices.com/wp-content/uploads/2021/06/local-cleaning-business-janitorial-cart-in-lobby-1200x600-1.jpg" class="w-full h-full object-cover parallax-section" alt="Janitorial Service in Commercial Lobby">
+            
+            <!-- OVERLAY: Keeping it light (40%) to show off the clean space -->
+            <div class="absolute inset-0 bg-brand-dark/40 z-10"></div>
+            <!-- Gradient: Subtle side gradient for text readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/80 via-brand-dark/30 to-transparent z-10"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 lg:px-6 relative z-20">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Hero Copy -->
+                <div class="lg:col-span-7 reveal active text-center lg:text-left pt-6 lg:pt-0">
+                    <div class="inline-flex items-center gap-3 mb-6 bg-brand-gold/10 border border-brand-gold/20 px-3 py-1.5 lg:px-4 lg:py-2 rounded-full backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-brand-gold font-bold text-[10px] lg:text-xs uppercase tracking-[0.2em]">Serving Metro Atlanta | New Clients</span>
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-white leading-tight mb-4 lg:mb-6">
+                        Atlanta’s Gold Standard in<br>
+                        <span class="italic text-gold-gradient">Commercial Cleaning.</span>
+                    </h1>
+                    
+                    <p class="text-sm sm:text-base md:text-lg text-slate-300 max-w-xl leading-relaxed font-light mb-6 lg:mb-8 mx-auto lg:mx-0">
+                        From Buckhead to Midtown, we keep Atlanta’s businesses spotless. Trust the premier janitorial service committed to your company's image.
+                    </p>
+
+                     <!-- NEW HERO BADGES & CTA AREA -->
+                    <div class="flex flex-col gap-6">
+                        
+                        <!-- Primary Action -->
+                        <div class="flex justify-center lg:justify-start">
+                            <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="group relative px-8 py-3.5 rounded-full bg-transparent border-2 border-brand-gold text-brand-gold font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 w-full sm:w-auto overflow-hidden">
+                                <span class="relative z-10 flex items-center justify-center gap-2">Explore Services <i class="ph ph-arrow-down"></i></span>
+                            </button>
+                        </div>
+
+                        <!-- High-End Trust Badges -->
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                            
+                            <!-- Badge 1: INSURED (High Priority) -->
+                            <div class="flex items-center gap-3 bg-brand-gold/10 backdrop-blur-xl border border-brand-gold/40 rounded-xl px-4 py-3 shadow-[0_0_20px_rgba(212,175,55,0.15)] hover:bg-brand-gold/20 transition-all cursor-default flex-1 sm:flex-none min-w-[180px]">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-gold to-yellow-600 flex items-center justify-center text-brand-dark shadow-lg shrink-0">
+                                    <!-- FIXED: Inline SVG Shield Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-6 h-6 fill-brand-dark">
+                                        <path d="M239.86,89.55l-104-56a16,16,0,0,0-15.72,0l-104,56A16,16,0,0,0,8,103.62V144c0,58.74,52.88,100.22,116.32,111.45a16.14,16.14,0,0,0,5.49.09C194.27,245.89,248,203.93,248,144V103.62A16,16,0,0,0,239.86,89.55ZM128,239.81C70.61,228.46,24,190.69,24,144V103.62L128,47.62l104,56V144C232,190.87,185.29,228.62,128,239.81Zm53.66-133.47-64,64a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32L112,152.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] font-bold text-brand-gold uppercase tracking-wider mb-0.5">100% Protected</span>
+                                    <span class="text-sm font-black text-white uppercase tracking-wide leading-none">Licensed &<br>Insured</span>
+                                </div>
+                            </div>
+
+                            <!-- Badge 2: GOOGLE REVIEWS -->
+                            <div class="flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 hover:border-white/20 transition-all cursor-default flex-1 sm:flex-none min-w-[180px]">
+                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg shrink-0 p-2">
+                                    <!-- FIXED: Inline SVG Google Logo -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-full h-full">
+                                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6.19c4.51-4.18 7.09-10.36 7.09-17.84z"></path>
+                                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                                        <path fill="#34A853" d="M24 48c6.48 0 11.95-2.13 15.89-5.81l-7.73-6.19c-2.14 1.44-4.9 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                                        <path fill="none" d="M0 0h48v48H0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex text-yellow-400 text-xs mb-1">
+                                        <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-slate-200 uppercase tracking-wider leading-none">5.0 Top Rated Pro</span>
+                                </div>
+                            </div>
+
+                            <!-- Badge 3: SATISFACTION (Optional on very small screens) -->
+                            <div class="hidden sm:flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 hover:border-white/20 transition-all cursor-default min-w-[160px]">
+                                <div class="w-10 h-10 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400 shrink-0">
+                                    <!-- FIXED: Inline SVG Check Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-6 h-6 fill-green-400">
+                                        <path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] font-bold text-green-400 uppercase tracking-wider mb-0.5">Risk Free</span>
+                                    <span class="text-xs font-bold text-white uppercase tracking-wide leading-none">Satisfaction<br>Guarantee</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Form (HIGH CONVERSION OPTIMIZED) -->
+                <div class="lg:col-span-5 reveal active delay-200 w-full max-w-md mx-auto lg:max-w-full">
+                    <div class="bg-white rounded-2xl shadow-[0_30px_70px_-10px_rgba(0,0,0,0.6)] overflow-hidden relative transform transition-transform hover:scale-[1.01] duration-500 border border-white/20">
+                        
+                        <!-- Premium Header -->
+                        <div class="bg-gradient-to-b from-slate-50 to-white p-5 lg:p-6 text-center border-b border-slate-100 relative">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-navy via-brand-gold to-brand-navy"></div>
+                            
+                            <div class="inline-flex items-center gap-1.5 bg-green-50 border border-green-100 px-3 py-1 rounded-full mb-2 shadow-sm">
+                                <span class="relative flex h-2 w-2">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                </span>
+                                <span class="text-[10px] font-extrabold text-green-700 uppercase tracking-widest">Fast Response</span>
+                            </div>
+                            
+                            <h3 class="text-brand-dark font-serif font-bold text-xl lg:text-2xl">Unlock Your Best Quote</h3>
+                            <p class="text-slate-500 text-xs lg:text-sm mt-1">See how much you can save on premium cleaning.</p>
+                        </div>
+
+                        <div class="p-5 lg:p-8 bg-white">
+                            <form id="heroForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                                
+                                <!-- Company Field -->
+                                <div>
+                                    <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Company / Organization</label>
+                                    <div class="relative group input-ring rounded-lg transition-all duration-300">
+                                        <i class="ph ph-buildings absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-gold transition-colors"></i>
+                                        <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-10 pr-4 text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Ex: Tech Solutions Inc.">
+                                    </div>
+                                </div>
+                                
+                                <!-- Name & Phone Row -->
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Contact Name</label>
+                                        <div class="relative group input-ring rounded-lg">
+                                            <i class="ph ph-user absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-gold transition-colors"></i>
+                                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-9 pr-3 text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Phone Number</label>
+                                        <div class="relative group input-ring rounded-lg">
+                                            <i class="ph ph-phone absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-gold transition-colors"></i>
+                                            <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-9 pr-3 text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="(555)...">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Service Select -->
+                                <div>
+                                    <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">What do you need?</label>
+                                    <div class="relative group input-ring rounded-lg">
+                                        <i class="ph ph-broom absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-gold transition-colors"></i>
+                                        <select class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-10 pr-10 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer">
+                                            <option>Daily/Weekly Office Cleaning</option>
+                                            <option>Deep Cleaning / One-Time</option>
+                                            <option>Floor Care (Strip & Wax)</option>
+                                            <option>Medical Facility Cleaning</option>
+                                            <option>Post-Construction Cleanup</option>
+                                        </select>
+                                        <i class="ph ph-caret-down absolute right-4 top-3.5 text-slate-400 pointer-events-none group-focus-within:text-brand-gold"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Action Button -->
+                                <button type="submit" class="btn-gold w-full text-brand-dark font-extrabold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 group text-sm tracking-wide mt-2 hover:scale-[1.02] transition-transform">
+                                    <span>GET MY FREE PROPOSAL</span>
+                                    <i class="ph ph-paper-plane-right text-lg group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                                
+                                <!-- Trust Footer -->
+                                <div class="flex items-center justify-center gap-3 mt-2 text-[10px] text-slate-400 font-medium pt-2 border-t border-slate-50">
+                                    <span class="flex items-center gap-1"><i class="ph ph-lock-key text-green-500"></i> No Spam</span>
+                                    <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+                                    <span class="flex items-center gap-1"><i class="ph ph-shield-check text-brand-gold"></i> Secure SSL</span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED BY SECTION -->
+    <section class="bg-white border-b border-slate-100 py-10">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">Trusted by Atlanta's Leading Businesses</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-60 hover:opacity-100 transition-opacity duration-500">
+                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-dark transition-colors cursor-default">
+                    <i class="ph ph-bank text-2xl"></i> ATL FINCORP
+                </div>
+                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-dark transition-colors cursor-default">
+                    <i class="ph ph-hospital text-2xl"></i> GA MedCare+
+                </div>
+                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-dark transition-colors cursor-default">
+                    <i class="ph ph-buildings text-2xl"></i> PeachTower
+                </div>
+                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-dark transition-colors cursor-default">
+                    <i class="ph ph-rocket text-2xl"></i> TechFlow GA
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-16 md:py-24 bg-brand-surface relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/50 to-transparent pointer-events-none"></div>
+        <div class="container mx-auto px-4 lg:px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 lg:mb-16 reveal">
+                <div class="max-w-2xl">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em]">Our Expertise</span>
+                        <span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold uppercase rounded-full border border-green-200">Certified</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-brand-dark">Janitorial Solutions for Atlanta</h2>
+                    <p class="mt-4 text-slate-500 text-base md:text-lg">From reception areas in Downtown to boardrooms in Sandy Springs, we ensure every inch projects professionalism.</p>
+                </div>
+                <div class="hidden md:block pb-2">
+                    <a href="#contact" class="text-brand-dark font-bold text-sm uppercase tracking-widest border-b-2 border-brand-gold/50 pb-1 hover:text-brand-gold hover:border-brand-gold transition-colors">See Full Service List</a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Card 1 -->
+                <div class="group bg-white p-8 shadow-md hover:shadow-2xl transition-all duration-500 border border-slate-100 relative overflow-hidden rounded-2xl hover:-translate-y-2">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-gold to-brand-navy transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div class="absolute top-4 right-4 bg-brand-surface text-brand-dark text-[10px] font-bold px-2 py-1 rounded border border-slate-200">MOST POPULAR</div>
+                    <div class="w-16 h-16 bg-brand-surface rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300 shadow-inner">
+                        <i class="ph ph-office-chair text-3xl text-brand-dark group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Office Cleaning</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Trash removal, vacuuming, dusting, and restroom sanitization on a schedule that fits your business hours.</p>
+                    <a href="#contact" class="text-brand-gold font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Get Quote <i class="ph ph-caret-right"></i></a>
+                </div>
+                <!-- Card 2 -->
+                <div class="group bg-brand-dark p-8 shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 relative overflow-hidden rounded-2xl border border-white/5 transform md:-translate-y-4 hover:-translate-y-6">
+                    <div class="absolute top-0 right-0 p-4 opacity-10"><i class="ph ph-sparkle text-8xl text-white"></i></div>
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 border border-white/10 shadow-inner group-hover:bg-brand-gold group-hover:border-transparent transition-colors duration-300">
+                        <i class="ph ph-sparkle text-3xl text-brand-gold group-hover:text-brand-dark transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Floor Care & Carpet</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Extend the life of your flooring. We offer stripping, waxing, buffing, and commercial carpet extraction.</p>
+                    <a href="#contact" class="text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Get Quote <i class="ph ph-caret-right"></i></a>
+                </div>
+                <!-- Card 3 -->
+                <div class="group bg-white p-8 shadow-md hover:shadow-2xl transition-all duration-500 border border-slate-100 relative overflow-hidden rounded-2xl hover:-translate-y-2">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-navy to-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right"></div>
+                    <div class="w-16 h-16 bg-brand-surface rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300 shadow-inner">
+                        <i class="ph ph-virus text-3xl text-brand-dark group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Disinfection Services</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Electrostatic spraying and high-touch point disinfection to keep your employees healthy and safe.</p>
+                    <a href="#contact" class="text-brand-gold font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Get Quote <i class="ph ph-caret-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC SECTION: INDUSTRIES WE SERVE -->
+    <section id="industries" class="py-16 md:py-24 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 lg:mb-16 reveal">
+                <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] block mb-3">Tailored Solutions</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-brand-dark">Specialized for Your Industry</h2>
+                <p class="mt-4 text-slate-500 max-w-2xl mx-auto">We adapt our protocols to the unique compliance and aesthetic needs of your sector.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                
+                <!-- Card 1: Corporate -->
+                <div class="group relative h-[450px] rounded-3xl overflow-hidden cursor-pointer shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" onclick="openIndustryModal('Corporate Offices', 'Our corporate cleaning services ensure a pristine environment for your staff and clients. We focus on conference rooms, reception areas, and workstations, offering flexible scheduling to minimize disruption.', 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&q=80')">
+                    <!-- Background Image -->
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&q=80" alt="Corporate" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    
+                    <!-- Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent opacity-90 transition-opacity duration-300"></div>
+                    
+                    <!-- Floating Icon Badge -->
+                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-gold group-hover:border-brand-gold transition-colors duration-300 z-10 shadow-lg">
+                        <i class="ph ph-briefcase text-2xl text-white group-hover:text-brand-dark transition-colors"></i>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Workplace Excellence</span>
+                            
+                            <h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight">Corporate Offices</h3>
+                            
+                            <!-- Animated Line -->
+                            <div class="w-8 h-1 bg-brand-gold mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
+                            
+                            <p class="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                                Elevate your professional image with spotless boardrooms, lobbies, and workstations.
+                            </p>
+
+                            <!-- Features List (Reveals on Hover) -->
+                            <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                                <ul class="overflow-hidden space-y-2 mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium">
+                                        <i class="ph ph-check-circle text-brand-gold"></i> Conference Room Detail
+                                    </li>
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium">
+                                        <i class="ph ph-check-circle text-brand-gold"></i> Restroom Sanitization
+                                    </li>
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium">
+                                        <i class="ph ph-check-circle text-brand-gold"></i> Day Porter Services
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- CTA Link -->
+                            <div class="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
+                                View Plan <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Medical -->
+                <div class="group relative h-[450px] rounded-3xl overflow-hidden cursor-pointer shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" onclick="openIndustryModal('Medical & Dental', 'We adhere to strict hygiene protocols for medical facilities. Our staff is trained in terminal cleaning, HIPAA compliance, and the use of hospital-grade disinfectants to ensure patient safety.', 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80')">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80" alt="Medical" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent opacity-90 transition-opacity duration-300"></div>
+                    
+                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-gold group-hover:border-brand-gold transition-colors duration-300 z-10 shadow-lg">
+                        <i class="ph ph-first-aid text-2xl text-white group-hover:text-brand-dark transition-colors"></i>
+                    </div>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Healthcare Grade</span>
+                            <h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight">Medical & Dental</h3>
+                            <div class="w-8 h-1 bg-brand-gold mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
+                            <p class="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                                Strict adherence to HIPAA and OSHA standards using hospital-grade disinfectants.
+                            </p>
+                            <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                                <ul class="overflow-hidden space-y-2 mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Terminal Cleaning</li>
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Waiting Area Care</li>
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Cross-contamination Control</li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
+                                View Plan <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Retail -->
+                <div class="group relative h-[450px] rounded-3xl overflow-hidden cursor-pointer shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" onclick="openIndustryModal('Retail & Showrooms', 'First impressions matter in retail. We provide high-detail cleaning for showrooms, fitting rooms, and sales floors, including glass cleaning and floor polishing to make your products shine.', 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80')">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Retail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent opacity-90 transition-opacity duration-300"></div>
+                    
+                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-gold group-hover:border-brand-gold transition-colors duration-300 z-10 shadow-lg">
+                        <i class="ph ph-shopping-bag text-2xl text-white group-hover:text-brand-dark transition-colors"></i>
+                    </div>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Customer Experience</span>
+                            <h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight">Retail & Showrooms</h3>
+                            <div class="w-8 h-1 bg-brand-gold mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
+                            <p class="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                                Create an inviting atmosphere with crystal-clear glass and gleaming floors.
+                            </p>
+                            <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                                <ul class="overflow-hidden space-y-2 mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Floor Maintenance</li>
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Window Washing</li>
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Dusting Displays</li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
+                                View Plan <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Industrial -->
+                <div class="group relative h-[450px] rounded-3xl overflow-hidden cursor-pointer shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" onclick="openIndustryModal('Industrial & Warehouse', 'Safety and efficiency are our priorities. We offer heavy-duty floor scrubbing, debris removal, and breakroom cleaning for industrial environments, ensuring OSHA compliance.', 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80')">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80" alt="Industrial" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent opacity-90 transition-opacity duration-300"></div>
+                    
+                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-gold group-hover:border-brand-gold transition-colors duration-300 z-10 shadow-lg">
+                        <i class="ph ph-factory text-2xl text-white group-hover:text-brand-dark transition-colors"></i>
+                    </div>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Safety & Efficiency</span>
+                            <h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight">Industrial & Warehouse</h3>
+                            <div class="w-8 h-1 bg-brand-gold mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
+                            <p class="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                                Heavy-duty cleaning prioritizing safety and OSHA compliance for your operations.
+                            </p>
+                            <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                                <ul class="overflow-hidden space-y-2 mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Debris Removal</li>
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Floor Scrubbing</li>
+                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Breakroom Hygiene</li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
+                                View Plan <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PROCESS -->
+    <section class="py-16 md:py-24 bg-brand-surface border-y border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 lg:mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-brand-dark">Simple Onboarding Process</h2>
+                <p class="mt-4 text-slate-500">We make switching cleaning providers seamless.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Connector Line (Desktop Only) -->
+                <div class="hidden md:block absolute top-12 left-[20%] right-[20%] h-0.5 bg-slate-300 -z-10 border-t-2 border-dashed border-slate-300"></div>
+                
+                <div class="text-center reveal">
+                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl border-4 border-slate-50 relative z-10 transition-transform hover:scale-110 duration-300">
+                        <span class="text-4xl font-serif font-bold text-brand-gold">01</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">Free Consultation</h3>
+                    <p class="text-slate-500 text-sm px-6">We visit your site to understand your specific needs and challenges.</p>
+                </div>
+                
+                <div class="text-center reveal delay-100">
+                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl border-4 border-slate-50 relative z-10 transition-transform hover:scale-110 duration-300">
+                        <span class="text-4xl font-serif font-bold text-brand-gold">02</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">Custom Plan</h3>
+                    <p class="text-slate-500 text-sm px-6">We build a checklist and schedule tailored to your facility.</p>
+                </div>
+                
+                <div class="text-center reveal delay-200">
+                    <div class="w-24 h-24 bg-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-brand-gold/30 relative z-10 transition-transform hover:scale-110 duration-300">
+                        <span class="text-4xl font-serif font-bold text-brand-dark">03</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">Consistent Clean</h3>
+                    <p class="text-slate-500 text-sm px-6">Our vetted team delivers spotless results, every single time.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 reveal">
+                <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'})" class="btn-gold px-10 py-4 rounded font-bold uppercase tracking-widest text-brand-dark hover:shadow-2xl transition-shadow">Start Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us (Enhanced Parallax) -->
+    <section id="why-us" class="py-16 md:py-24 bg-brand-dark relative text-white overflow-hidden parallax-section" style="background-image: linear-gradient(rgba(11, 17, 32, 0.95), rgba(11, 17, 32, 0.98)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+        
+        <!-- Decoration -->
+        <div class="absolute -left-20 top-40 w-80 h-80 bg-brand-gold/10 blur-[100px] rounded-full"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <div class="inline-block border border-brand-gold/30 px-4 py-2 rounded-full text-brand-gold text-xs font-bold uppercase tracking-widest mb-6">The LB Standard</div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight">Reliability You Can <br><span class="text-gold-gradient italic">Set Your Clock By.</span></h2>
+                <p class="text-slate-400 mb-8 leading-relaxed text-lg">We understand that missed cleanings mean disrupted workflows. Our team is vetted, trained, and monitored to ensure consistency.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-white/5 border border-white/5 p-6 rounded-lg hover:border-brand-gold/50 transition-colors group">
+                        <i class="ph ph-shield-check text-3xl text-brand-gold mb-3 group-hover:scale-110 transition-transform block"></i>
+                        <h4 class="font-bold mb-1">Fully Insured</h4>
+                        <p class="text-xs text-slate-400">Liability & Workers Comp coverage.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/5 p-6 rounded-lg hover:border-brand-gold/50 transition-colors group">
+                        <i class="ph ph-user-check text-3xl text-brand-gold mb-3 group-hover:scale-110 transition-transform block"></i>
+                        <h4 class="font-bold mb-1">Vetted Staff</h4>
+                        <p class="text-xs text-slate-400">Background checks on all cleaners.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex items-center gap-4">
+                     <div class="flex items-center gap-2 px-4 py-2 bg-brand-gold/10 rounded-full border border-brand-gold/20 backdrop-blur-md">
+                        <i class="ph ph-check-circle text-brand-gold"></i>
+                        <span class="text-xs font-bold text-brand-gold uppercase">100% Satisfaction Guarantee</span>
+                     </div>
+                </div>
+            </div>
+            
+            <div class="relative reveal delay-200 flex justify-center items-center py-10 md:py-0">
+                <!-- Decorative Glow Behind SVG -->
+                <div class="absolute inset-0 bg-brand-gold/5 rounded-full blur-3xl transform scale-75"></div>
+                
+                <!-- CUSTOM SVG ILLUSTRATION: SHIELD & QUALITY -->
+                <svg viewBox="0 0 400 400" class="relative w-full max-w-md h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Outer Circle/Shield Base -->
+                    <circle cx="200" cy="200" r="180" fill="#162032" fill-opacity="0.5" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="10 10" class="animate-[spin_60s_linear_infinite]"/>
+                    
+                    <!-- Main Shield -->
+                    <path d="M200 80C200 80 320 110 320 200C320 280 200 330 200 330C200 330 80 280 80 200C80 110 200 80 200 80Z" fill="url(#shield_gradient)" stroke="#D4AF37" stroke-width="2"/>
+                    
+                    <!-- Checkmark -->
+                    <path d="M150 200L185 235L250 165" stroke="#D4AF37" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- Sparkle 1 -->
+                    <path d="M330 100L335 85L340 100L355 105L340 110L335 125L330 110L315 105L330 100Z" fill="#FFF" class="animate-pulse"/>
+                    
+                    <!-- Sparkle 2 -->
+                    <path d="M70 280L75 265L80 280L95 285L80 290L75 305L70 290L55 285L70 280Z" fill="#D4AF37" class="animate-pulse" style="animation-delay: 1s"/>
+
+                    <!-- User Icon Badge -->
+                    <circle cx="200" cy="140" r="20" fill="#D4AF37" fill-opacity="0.2"/>
+                    <path d="M200 130C205.523 130 210 134.477 210 140C210 145.523 205.523 150 200 150C194.477 150 190 145.523 190 140C190 134.477 194.477 130 200 130ZM200 154C208.837 154 216 157.582 216 162V164H184V162C184 157.582 191.163 154 200 154Z" fill="#D4AF37"/>
+
+                    <defs>
+                        <linearGradient id="shield_gradient" x1="200" y1="80" x2="200" y2="330" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#0F172A"/>
+                            <stop offset="1" stop-color="#1E293B"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: FAQ -->
+    <section id="faq" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12 lg:mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-serif text-brand-dark">Frequently Asked Questions</h2>
+                <p class="text-slate-500 mt-4">Everything you need to know about our premium services.</p>
+            </div>
+            
+            <div class="space-y-4 reveal">
+                <!-- FAQ 1 -->
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
+                        <span>Are you insured and bonded in Georgia?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-slate-500 px-6 pb-6 pt-0 leading-relaxed">
+                        Yes, absolutely. We carry full liability insurance and workers' compensation coverage to protect both your business and our staff across Metro Atlanta. We can provide a certificate of insurance (COI) upon request.
+                    </div>
+                </details>
+                
+                <!-- FAQ 2 -->
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
+                        <span>How quickly can you start service?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-slate-500 px-6 pb-6 pt-0 leading-relaxed">
+                        We move fast. We can typically perform a site walkthrough within 24 hours of your call and begin service as soon as the agreement is signed. For emergency cleanings, we often have same-day availability.
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
+                        <span>Do I need to sign a long-term contract?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-slate-500 px-6 pb-6 pt-0 leading-relaxed">
+                        We offer flexible agreements. While annual plans lock in the best rates, we also provide month-to-month options. We believe our consistent quality should be the reason you stay, not a binding contract.
+                    </div>
+                </details>
+                
+                <!-- FAQ 4 -->
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
+                        <span>Do you offer eco-friendly "Green Cleaning"?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-slate-500 px-6 pb-6 pt-0 leading-relaxed">
+                        Yes! We offer a "Green Clean" program upon request, utilizing EPA-certified, non-toxic products and HEPA filtration vacuums. This is ideal for LEED-certified buildings and offices with sensitive staff.
+                    </div>
+                </details>
+
+                <!-- FAQ 5 -->
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
+                        <span>Can you clean during business hours?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-slate-500 px-6 pb-6 pt-0 leading-relaxed">
+                        Absolutely. Our "Day Porters" are trained to work discreetly around your staff without disrupting productivity. We also offer after-hours and weekend shifts to suit your operational needs.
+                    </div>
+                </details>
+                
+                <!-- FAQ 6 -->
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
+                        <span>Do you provide the cleaning supplies?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-slate-500 px-6 pb-6 pt-0 leading-relaxed">
+                        Yes, we bring our own high-quality, commercial-grade equipment and cleaning solutions. We can also manage your inventory of consumables (toilet paper, hand soap, trash liners) so you never run out.
+                    </div>
+                </details>
+
+                <!-- FAQ 7 -->
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
+                        <span>What happens if I'm not satisfied?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-slate-500 px-6 pb-6 pt-0 leading-relaxed">
+                        We stand by our <strong>100% Satisfaction Guarantee</strong>. If you spot any issue, simply notify us within 24 hours, and we will return to correct it at no extra charge. Your peace of mind is our priority.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS (MARQUEE) -->
+    <section id="testimonials" class="py-16 md:py-24 bg-brand-surface relative overflow-hidden pause-on-hover border-t border-slate-200">
+        <div class="container mx-auto px-6 mb-12">
+            <div class="text-center mb-8 reveal">
+                <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] block mb-3">Client Success Stories</span>
+                <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-8">What Our Clients Say</h2>
+                <!-- Badges -->
+                <div class="flex justify-center items-center gap-6 md:gap-12 flex-wrap">
+                    <div class="flex items-center gap-3 bg-white border border-slate-200 shadow-md px-5 py-3 rounded-full hover:scale-105 transition-transform">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6">
+                        <div class="flex flex-col items-start">
+                            <div class="flex text-yellow-500 text-xs">
+                                <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                            </div>
+                            <span class="text-xs font-bold text-slate-600">5.0 Star Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MARQUEE CONTAINER -->
+        <div class="marquee-mask w-full">
+            <div class="flex gap-8 animate-marquee w-max">
+                <!-- Original Set -->
+                <div class="flex gap-8 px-4">
+                    <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
+                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"LB Cleaners transformed our office. The attention to detail is unmatched, and their team is incredibly professional and discreet."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">SJ</div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">Sarah Jenkins</h4>
+                                <p class="text-xs text-slate-500 uppercase">Office Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
+                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"Consistent quality every single week. Highly recommended for any medical facility needing strict sanitation."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">DR</div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">Dr. Reynolds</h4>
+                                <p class="text-xs text-slate-500 uppercase">Clinic Director</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
+                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"Fast response time and excellent customer service. They truly care about their clients."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">MK</div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">Mike K.</h4>
+                                <p class="text-xs text-slate-500 uppercase">Facility Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Duplicate Set for loop -->
+                <div class="flex gap-8 px-4">
+                    <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
+                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"LB Cleaners transformed our office. The attention to detail is unmatched, and their team is incredibly professional and discreet."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">SJ</div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">Sarah Jenkins</h4>
+                                <p class="text-xs text-slate-500 uppercase">Office Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
+                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"Consistent quality every single week. Highly recommended for any medical facility needing strict sanitation."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">DR</div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">Dr. Reynolds</h4>
+                                <p class="text-xs text-slate-500 uppercase">Clinic Director</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
+                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"Fast response time and excellent customer service. They truly care about their clients."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">MK</div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">Mike K.</h4>
+                                <p class="text-xs text-slate-500 uppercase">Facility Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA Section -->
+    <section id="contact" class="py-16 md:py-24 bg-brand-surface relative">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-gradient-to-br from-brand-navy to-brand-dark rounded-2xl shadow-2xl p-8 md:p-16 text-center relative overflow-hidden reveal group">
+                <!-- Background Decoration -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-brand-gold/20 transition-colors duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+
+                <h2 class="text-3xl md:text-5xl font-serif text-white mb-6 relative z-10">Ready for a Cleaner Workspace?</h2>
+                <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">Get a free, no-obligation quote today. It takes less than 60 seconds.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+                    <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'})" class="btn-gold text-brand-dark px-10 py-4 rounded-lg font-bold uppercase tracking-widest shadow-lg">
+                        Get Online Quote
+                    </button>
+                    <a href="tel:+14703804785" class="bg-transparent border border-white/20 text-white px-8 py-4 rounded-lg font-bold uppercase tracking-widest hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                        <i class="ph ph-phone"></i> Call +1 (470) 380-4785
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white pt-16 md:pt-20 pb-10 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12 text-center md:text-left">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4 overflow-hidden h-20">
+                        <img src="https://i.imgur.com/Qio6Rij.png" alt="LB Cleaners Logo" class="h-full w-auto object-contain scale-[1.4] brightness-0 invert opacity-80">
+                    </div>
+                    <p class="text-slate-500 text-sm">Professional commercial cleaning services dedicated to excellence. Licensed, Insured, Trusted in Atlanta.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-brand-gold text-sm uppercase tracking-wider">Services</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Office Cleaning</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Janitorial Services</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Floor Maintenance</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Post-Construction</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-brand-gold text-sm uppercase tracking-wider">Company</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-brand-gold text-sm uppercase tracking-wider">Contact</h4>
+                    <a href="tel:+14703804785" class="text-xl font-bold mb-1 block hover:text-brand-gold transition-colors">+1 (470) 380-4785</a>
+                    <a href="mailto:lbcleanersandservices@gmail.com" class="text-sm text-slate-400 hover:text-white transition-colors">lbcleanersandservices@gmail.com</a>
+                    <p class="text-sm text-slate-400 mt-2">Mon-Fri: 8am - 6pm</p>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 gap-4">
+                <p>&copy; 2024 LB Cleaners & Service. Serving Atlanta & Metro Area.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SUCCESS POPUP MODAL -->
+    <div id="successModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-brand-dark/90 backdrop-blur-sm modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-content bg-white rounded-3xl shadow-2xl w-full max-w-md relative z-10 overflow-hidden transform modal-animate-enter" id="modalContent">
+            <div class="bg-gradient-to-r from-brand-gold to-yellow-400 h-2 w-full absolute top-0 left-0"></div>
+            <div class="p-6 md:p-8 text-center relative">
+                <div class="success-checkmark mb-6">
+                    <div class="check-icon relative border-brand-gold text-brand-gold"></div>
+                    <i class="ph ph-check text-5xl text-brand-gold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                </div>
+                
+                <h3 class="text-brand-dark font-serif font-bold text-2xl md:text-3xl mb-2 stagger-in">Request Received!</h3>
+                <p class="text-slate-500 text-sm md:text-base mb-8 stagger-in delay-100">We've got your details. One of our cleaning specialists will be in touch shortly.</p>
+                
+                <div class="bg-brand-surface border border-brand-gold/20 rounded-2xl p-5 md:p-6 mb-6 shadow-sm relative overflow-hidden group hover:shadow-md transition-all stagger-in delay-200">
+                    <div class="absolute top-0 right-0 bg-brand-gold/10 text-brand-dark text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Fastest Way</div>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-1">Need help right now?</p>
+                    <a href="tel:+14703804785" class="block w-full text-brand-dark hover:text-brand-gold font-black text-xl md:text-2xl transition-colors break-words">
+                        +1 (470) 380-4785
+                    </a>
+                    <p class="text-xs text-green-600 font-medium mt-1 flex items-center justify-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Available Now</p>
+                </div>
+
+                <button onclick="closeModal()" class="text-slate-400 text-sm hover:text-brand-dark font-medium underline transition-colors stagger-in delay-300 p-2">Close window</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- INDUSTRY DETAILS MODAL -->
+    <div id="industryModal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md modal-backdrop" onclick="closeIndustryModal()"></div>
+        
+        <div id="industryModalContent" class="modal-content bg-white rounded-3xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto relative z-10 flex flex-col lg:flex-row modal-animate-enter">
+            <!-- Close Button -->
+            <button onclick="closeIndustryModal()" class="absolute top-4 right-4 z-50 bg-black/10 hover:bg-black/20 md:bg-white/20 md:hover:bg-white/40 backdrop-blur-md rounded-full p-2 text-slate-800 md:text-white transition-colors shadow-lg group">
+                <i class="ph ph-x text-xl md:text-2xl group-hover:rotate-90 transition-transform"></i>
+            </button>
+
+            <!-- Image Side -->
+            <div class="w-full lg:w-5/12 h-56 md:h-64 lg:h-auto relative shrink-0">
+                <img id="modalImg" src="" alt="Industry" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent lg:bg-gradient-to-r"></div>
+                <div class="absolute bottom-6 left-6 text-white lg:hidden pr-10">
+                    <span class="text-brand-gold font-bold text-xs uppercase tracking-widest stagger-in">Selected Industry</span>
+                    <h3 id="modalTitleMobile" class="text-2xl md:text-3xl font-serif font-bold mt-1 stagger-in delay-100 leading-tight"></h3>
+                </div>
+            </div>
+
+            <!-- Content Side -->
+            <div class="w-full lg:w-7/12 p-6 md:p-8 lg:p-12 bg-white flex flex-col">
+                <div class="hidden lg:block mb-6">
+                    <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] stagger-in">Specialized Cleaning</span>
+                    <h3 id="modalTitle" class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mt-2 mb-4 stagger-in delay-100"></h3>
+                    <div class="w-20 h-1.5 bg-brand-gold rounded-full stagger-in delay-200"></div>
+                </div>
+                
+                <p id="modalDesc" class="text-slate-600 text-base md:text-lg leading-relaxed mb-8 stagger-in delay-300"></p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 stagger-in delay-300">
+                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-surface border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-gold shadow-sm shrink-0">
+                            <i class="ph ph-check-circle text-xl"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark text-sm">Specialized Equipment</h5>
+                            <p class="text-xs text-slate-500 mt-1">Industry-grade tools for deep cleaning.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-surface border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-gold shadow-sm shrink-0">
+                            <i class="ph ph-certificate text-xl"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark text-sm">Trained Personnel</h5>
+                            <p class="text-xs text-slate-500 mt-1">Staff vetted for your specific sector.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-surface border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-gold shadow-sm shrink-0">
+                            <i class="ph ph-clock text-xl"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark text-sm">Flexible Schedule</h5>
+                            <p class="text-xs text-slate-500 mt-1">Cleaning that fits your operations.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-surface border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-gold shadow-sm shrink-0">
+                            <i class="ph ph-shield-check text-xl"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark text-sm">100% Compliant</h5>
+                            <p class="text-xs text-slate-500 mt-1">Adhering to OSHA/HIPAA standards.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-auto pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-4 items-center stagger-in delay-300">
+                    <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'}); closeIndustryModal();" class="btn-gold w-full sm:w-auto px-6 py-4 rounded-xl text-brand-dark font-bold uppercase tracking-widest shadow-xl hover:scale-105 transition-transform flex items-center justify-center gap-2 text-xs md:text-sm">
+                        <span>Get Custom Quote</span> <i class="ph ph-arrow-right"></i>
+                    </button>
+                    <p class="text-xs text-slate-400 text-center sm:text-left flex items-center gap-1 justify-center sm:justify-start">
+                        <i class="ph ph-info text-brand-gold"></i> Free on-site assessment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chat Widget -->
+    <div class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[60] flex flex-col items-end gap-2 group pointer-events-none">
+        <!-- Message Bubble -->
+        <div id="chat-message" class="pointer-events-auto bg-white text-slate-800 p-0 rounded-2xl rounded-br-none shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] border border-slate-100 max-w-[280px] md:max-w-xs transform translate-y-4 opacity-0 transition-all duration-500 hidden origin-bottom-right">
+            
+            <!-- Typing State -->
+            <div id="typing-indicator" class="p-4 flex items-center gap-1.5 min-h-[50px]">
+                <span class="text-xs font-bold text-slate-400 mr-1">Sarah is typing</span>
+                <div class="flex gap-1">
+                    <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-[bounce_1s_infinite]"></span>
+                    <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-[bounce_1s_infinite_0.2s]"></span>
+                    <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-[bounce_1s_infinite_0.4s]"></span>
+                </div>
+            </div>
+
+            <!-- Message Content State -->
+            <div id="chat-text" class="hidden p-5 animate-fade-in">
+                <div class="flex justify-between items-start mb-2">
+                    <p class="text-sm font-bold text-brand-dark">Sarah <span class="text-[10px] font-normal text-slate-400 ml-1">Support</span></p>
+                    <!-- UPDATED CLOSE BUTTON -->
+                    <button onclick="closeChat()" class="text-slate-300 hover:text-slate-500"><i class="ph ph-x"></i></button>
+                </div>
+                <p class="text-xs md:text-sm text-slate-600 mb-3 leading-relaxed">Hi there! 👋 Need a quick quote for your office cleaning in Atlanta?</p>
+                <a href="#contact" onclick="closeChat()" class="block text-center bg-brand-gold text-brand-dark text-xs font-bold py-2.5 rounded-lg uppercase tracking-wide hover:bg-yellow-400 transition-colors shadow-sm">Get Free Quote</a>
+            </div>
+        </div>
+
+        <!-- Avatar Button -->
+        <button onclick="toggleChat()" class="pointer-events-auto relative w-12 h-12 md:w-16 md:h-16 rounded-full shadow-2xl border-4 border-white hover:scale-105 transition-transform focus:outline-none group">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Support Agent" class="w-full h-full object-cover rounded-full">
+            <!-- Online Indicator -->
+            <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full z-20"></span>
+            
+            <!-- NEW NOTIFICATION BADGE (ON THE EDGE) -->
+            <span id="chat-notification" class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white transform scale-0 transition-transform duration-300 z-30 shadow-sm">1</span>
+
+            <!-- Hover Tooltip -->
+            <span class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/20 transition-colors rounded-full pointer-events-none"></span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Force Scroll Enable on Load
+        document.body.style.overflow = '';
+        document.body.style.overflowX = 'hidden';
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const navContainer = document.getElementById('nav-container');
+            const logoImg = document.getElementById('nav-logo');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const phoneBtn = document.getElementById('nav-phone');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+
+            if (window.scrollY > 20) {
+                // SCROLLED STATE (White background, Dark Text, Color Logo)
+                navbar.classList.remove('bg-transparent', 'py-4', 'border-white/10', 'text-white');
+                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-slate-50', 'text-slate-800');
+                
+                navContainer.classList.remove('lg:h-24');
+                navContainer.classList.add('lg:h-20');
+
+                // Logo Original Colors
+                logoImg.classList.remove('brightness-0', 'invert');
+                
+                // Links Dark
+                navLinks.forEach(link => {
+                     link.classList.remove('text-white');
+                     link.classList.add('text-slate-800');
+                });
+
+                // Phone Button Style
+                phoneBtn.classList.remove('text-white', 'border-white/20', 'bg-white/10');
+                phoneBtn.classList.add('text-brand-dark', 'border-slate-200', 'bg-slate-50');
+
+                // Mobile Btn Dark
+                mobileBtn.classList.remove('text-white', 'hover:bg-white/10');
+                mobileBtn.classList.add('text-brand-dark', 'hover:bg-slate-100');
+
+            } else {
+                // TOP STATE (Transparent, White Text, White Logo)
+                navbar.classList.add('bg-transparent', 'py-4', 'border-white/10', 'text-white');
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-slate-50', 'text-slate-800');
+                
+                navContainer.classList.add('lg:h-24');
+                navContainer.classList.remove('lg:h-20');
+
+                // Logo White Filter
+                logoImg.classList.add('brightness-0', 'invert');
+
+                // Links White
+                 navLinks.forEach(link => {
+                     link.classList.add('text-white');
+                     link.classList.remove('text-slate-800');
+                });
+
+                // Phone Button White Style
+                phoneBtn.classList.add('text-white', 'border-white/20', 'bg-white/10');
+                phoneBtn.classList.remove('text-brand-dark', 'border-slate-200', 'bg-slate-50');
+
+                // Mobile Btn White
+                mobileBtn.classList.add('text-white', 'hover:bg-white/10');
+                mobileBtn.classList.remove('text-brand-dark', 'hover:bg-slate-100');
+            }
+            
+            // Progress Bar
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        });
+
+        // Prevent Scroll Helper
+        function toggleBodyScroll(disable) {
+            if (disable) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+                document.body.style.overflowX = 'hidden';
+            }
+        }
+
+        // Handle Escape Key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+                closeIndustryModal();
+            }
+        });
+
+        // Form Handling
+        function handleFormSubmit(e) {
+            e.preventDefault(); 
+            const modal = document.getElementById('successModal');
+            const modalContent = document.getElementById('modalContent');
+            modal.classList.remove('hidden');
+            toggleBodyScroll(true);
+            
+            // Reset animations
+            const animatedElements = modalContent.querySelectorAll('.stagger-in');
+            animatedElements.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight; /* trigger reflow */
+                el.style.animation = null; 
+            });
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.add('hidden');
+            toggleBodyScroll(false);
+            document.getElementById('heroForm').reset();
+        }
+
+        // Industry Modal Logic
+        function openIndustryModal(title, desc, imgSrc) {
+            const modal = document.getElementById('industryModal');
+            const modalContent = document.getElementById('industryModalContent');
+            
+            // Populate content
+            if(document.getElementById('modalTitle')) document.getElementById('modalTitle').innerText = title;
+            if(document.getElementById('modalTitleMobile')) document.getElementById('modalTitleMobile').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalImg').src = imgSrc;
+            
+            modal.classList.remove('hidden');
+            toggleBodyScroll(true);
+
+            // Reset animations for fresh entrance
+            const animatedElements = modalContent.querySelectorAll('.stagger-in');
+            animatedElements.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight; /* trigger reflow */
+                el.style.animation = null; 
+            });
+        }
+
+        function closeIndustryModal() {
+            const modal = document.getElementById('industryModal');
+            modal.classList.add('hidden');
+            toggleBodyScroll(false);
+        }
+
+        // Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Tilt Effect
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width/2;
+                const y = e.clientY - rect.top - rect.height/2;
+                card.style.transform = `perspective(1000px) rotateX(${-y/20}deg) rotateY(${x/20}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0) rotateY(0)`;
+            });
+        });
+
+        // Chat Widget Logic
+        function closeChat() {
+            const msgContainer = document.getElementById('chat-message');
+            const notification = document.getElementById('chat-notification');
+            
+            msgContainer.classList.add('translate-y-4', 'opacity-0');
+            setTimeout(() => {
+                msgContainer.classList.add('hidden');
+                // Show notification when closed
+                notification.classList.remove('scale-0');
+                notification.classList.add('scale-100');
+            }, 500);
+        }
+
+        function toggleChat() {
+            const msgContainer = document.getElementById('chat-message');
+            const notification = document.getElementById('chat-notification');
+            
+            // Toggle visibility logic
+            if (msgContainer.classList.contains('hidden')) {
+                // OPEN
+                msgContainer.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    msgContainer.classList.remove('translate-y-4', 'opacity-0');
+                });
+                // Hide notification
+                notification.classList.remove('scale-100');
+                notification.classList.add('scale-0');
+            } else {
+                // CLOSE
+                closeChat();
+            }
+        }
+
+        // Auto Open Chat
+        setTimeout(() => {
+            const msgContainer = document.getElementById('chat-message');
+            msgContainer.classList.remove('hidden');
+            // Trigger transition next frame
+            requestAnimationFrame(() => {
+                msgContainer.classList.remove('translate-y-4', 'opacity-0');
+            });
+            
+            // Switch from typing to text after another delay
+            setTimeout(() => {
+                document.getElementById('typing-indicator').classList.add('hidden');
+                document.getElementById('chat-text').classList.remove('hidden');
+            }, 2500); // 2.5 seconds of typing
+        }, 3000); // Start after 3 seconds on page
+    </script>
+</body>
+</html>
