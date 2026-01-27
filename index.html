@@ -70,6 +70,7 @@
 
     <style>
         /* Estilos Premium e Animações */
+        /* Correção de Scroll: overflow-x-hidden no body, não html */
         body { overflow-x: hidden; width: 100%; }
         
         ::-webkit-scrollbar { width: 8px; }
@@ -274,8 +275,9 @@
     </header>
 
     <!-- Hero Section with Form -->
-    <!-- ADDED bg-slate-900 as fallback color to prevent white screen -->
-    <section class="relative min-h-[100dvh] flex items-center pt-28 pb-12 lg:pt-40 lg:pb-24 overflow-hidden bg-slate-900">
+    <!-- COMPACT MOBILE ADJUSTMENTS: pt-20 pb-8 (Mobile) | pt-40 pb-24 (Desktop) -->
+    <!-- Use items-start on mobile to push content up -->
+    <section class="relative min-h-[100dvh] flex items-start lg:items-center pt-20 pb-8 lg:pt-40 lg:pb-24 overflow-hidden bg-slate-900">
         <!-- CHANGED from IMG tag to DIV with background-image for stability -->
         <div id="hero-bg" class="absolute inset-0 z-0 scale-105" 
              style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
@@ -287,54 +289,56 @@
         </div>
         
         <div class="container mx-auto px-4 lg:px-6 relative z-20">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
                 
                 <!-- Hero Copy -->
-                <div class="lg:col-span-7 reveal active text-center lg:text-left pt-12 lg:pt-0">
-                    <div class="inline-flex items-center gap-3 mb-6 bg-brand-gold/10 border border-brand-gold/20 px-3 py-1.5 lg:px-4 lg:py-2 rounded-full backdrop-blur-sm">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span class="text-brand-gold font-bold text-[10px] lg:text-xs uppercase tracking-[0.2em]">Metro Atlanta</span>
+                <!-- Reduced Top Padding on Mobile: pt-4 -->
+                <div class="lg:col-span-7 reveal active text-center lg:text-left pt-4 lg:pt-0">
+                    <div class="inline-flex items-center gap-2 mb-4 lg:mb-6 bg-brand-gold/10 border border-brand-gold/20 px-3 py-1 lg:px-3 lg:py-1.5 rounded-full backdrop-blur-sm">
+                        <span class="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-brand-gold font-bold text-[9px] lg:text-[10px] lg:text-xs uppercase tracking-[0.2em]">Metro Atlanta</span>
                     </div>
                     
-                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-serif text-white leading-tight mb-4 lg:mb-6 drop-shadow-lg">
+                    <!-- Smaller Text on Mobile: text-3xl -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-7xl font-serif text-white leading-tight mb-3 lg:mb-6 drop-shadow-lg">
                         Atlanta’s Gold Standard in<br>
                         <span class="italic text-gold-gradient">Commercial Cleaning.</span>
                     </h1>
                     
-                    <p class="text-base md:text-lg text-slate-200 max-w-xl leading-relaxed font-light mb-8 lg:mb-10 mx-auto lg:mx-0 drop-shadow-md">
+                    <p class="text-xs sm:text-base md:text-lg text-slate-200 max-w-xl leading-relaxed font-light mb-6 lg:mb-10 mx-auto lg:mx-0 drop-shadow-md">
                         From Buckhead to Midtown, we keep Atlanta’s businesses spotless. Trust the premier janitorial service committed to your company's image.
                     </p>
 
-                     <!-- NEW HERO BADGES & CTA AREA (SCROLLABLE ON MOBILE) -->
-                    <div class="flex flex-col gap-6">
+                     <!-- COMPACT MOBILE BADGES & CTA AREA -->
+                    <div class="flex flex-col gap-4 lg:gap-6">
                         
                         <!-- Primary Action -->
                         <div class="flex justify-center lg:justify-start">
-                            <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="group relative px-8 py-3.5 rounded-full bg-brand-gold/10 border-2 border-brand-gold text-brand-gold font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 w-full sm:w-auto overflow-hidden">
+                            <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="group relative px-6 py-3 lg:px-8 lg:py-3.5 rounded-full bg-brand-gold/10 border-2 border-brand-gold text-brand-gold font-bold text-[10px] lg:text-xs uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 w-full sm:w-auto overflow-hidden">
                                 <span class="relative z-10 flex items-center justify-center gap-2">Explore Services <i class="ph ph-arrow-down"></i></span>
                             </button>
                         </div>
 
-                        <!-- High-End Trust Badges (Horizontal Scroll on Mobile) -->
-                        <div class="flex overflow-x-auto pb-4 lg:pb-0 gap-4 snap-x snap-mandatory lg:flex-wrap justify-start -mx-4 px-4 lg:mx-0 lg:px-0 no-scrollbar">
+                        <!-- High-End Trust Badges (GRID ON MOBILE - NO SCROLL) -->
+                        <div class="grid grid-cols-2 gap-2 lg:flex lg:flex-wrap lg:justify-start lg:gap-4">
                             
-                            <!-- Badge 1 -->
-                            <div class="flex items-center gap-3 bg-brand-dark/40 backdrop-blur-xl border border-brand-gold/40 rounded-xl px-4 py-3 shadow-lg flex-none min-w-[200px] snap-center">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-gold to-yellow-600 flex items-center justify-center text-brand-dark shadow-lg shrink-0">
+                            <!-- Badge 1: INSURED (High Priority) -->
+                            <div class="flex items-center gap-2 lg:gap-3 bg-brand-dark/40 backdrop-blur-xl border border-brand-gold/40 rounded-lg lg:rounded-xl px-2 py-2 lg:px-4 lg:py-3 shadow-lg cursor-default">
+                                <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-br from-brand-gold to-yellow-600 flex items-center justify-center text-brand-dark shadow-lg shrink-0">
                                     <!-- FIXED: Inline SVG Shield Icon -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-6 h-6 fill-brand-dark">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-4 h-4 lg:w-6 lg:h-6 fill-brand-dark">
                                         <path d="M239.86,89.55l-104-56a16,16,0,0,0-15.72,0l-104,56A16,16,0,0,0,8,103.62V144c0,58.74,52.88,100.22,116.32,111.45a16.14,16.14,0,0,0,5.49.09C194.27,245.89,248,203.93,248,144V103.62A16,16,0,0,0,239.86,89.55ZM128,239.81C70.61,228.46,24,190.69,24,144V103.62L128,47.62l104,56V144C232,190.87,185.29,228.62,128,239.81Zm53.66-133.47-64,64a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32L112,152.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path>
                                     </svg>
                                 </div>
-                                <div class="flex flex-col">
-                                    <span class="text-[10px] font-bold text-brand-gold uppercase tracking-wider mb-0.5">100% Protected</span>
-                                    <span class="text-sm font-black text-white uppercase tracking-wide leading-none">Licensed &<br>Insured</span>
+                                <div class="flex flex-col overflow-hidden">
+                                    <span class="text-[8px] lg:text-[10px] font-bold text-brand-gold uppercase tracking-wider mb-0.5 truncate">100% Protected</span>
+                                    <span class="text-xs lg:text-sm font-black text-white uppercase tracking-wide leading-none truncate">Licensed</span>
                                 </div>
                             </div>
 
-                            <!-- Badge 2 -->
-                            <div class="flex items-center gap-3 bg-brand-dark/40 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 flex-none min-w-[200px] snap-center">
-                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg shrink-0 p-2">
+                            <!-- Badge 2: GOOGLE REVIEWS -->
+                            <div class="flex items-center gap-2 lg:gap-3 bg-brand-dark/40 backdrop-blur-xl border border-white/10 rounded-lg lg:rounded-xl px-2 py-2 lg:px-4 lg:py-3 shadow-lg cursor-default">
+                                <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white flex items-center justify-center shadow-lg shrink-0 p-1.5 lg:p-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-full h-full">
                                         <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
                                         <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6.19c4.51-4.18 7.09-10.36 7.09-17.84z"></path>
@@ -343,11 +347,11 @@
                                         <path fill="none" d="M0 0h48v48H0z"></path>
                                     </svg>
                                 </div>
-                                <div class="flex flex-col">
-                                    <div class="flex text-yellow-400 text-xs mb-1">
+                                <div class="flex flex-col overflow-hidden">
+                                    <div class="flex text-yellow-400 text-[10px] gap-0.5 mb-0.5">
                                         <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
                                     </div>
-                                    <span class="text-[10px] font-bold text-slate-200 uppercase tracking-wider leading-none">5.0 Top Rated</span>
+                                    <span class="text-xs lg:text-sm font-bold text-slate-200 uppercase tracking-wider leading-none truncate">5.0 Rated</span>
                                 </div>
                             </div>
 
@@ -360,30 +364,30 @@
                     <div class="bg-white rounded-2xl shadow-[0_30px_70px_-10px_rgba(0,0,0,0.6)] overflow-hidden relative transform transition-transform hover:scale-[1.01] duration-500 border border-white/20">
                         
                         <!-- Premium Header -->
-                        <div class="bg-gradient-to-b from-slate-50 to-white p-5 lg:p-6 text-center border-b border-slate-100 relative">
+                        <div class="bg-gradient-to-b from-slate-50 to-white p-4 lg:p-6 text-center border-b border-slate-100 relative">
                             <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-navy via-brand-gold to-brand-navy"></div>
                             
-                            <div class="inline-flex items-center gap-1.5 bg-green-50 border border-green-100 px-3 py-1 rounded-full mb-2 shadow-sm">
-                                <span class="relative flex h-2 w-2">
+                            <div class="inline-flex items-center gap-1.5 bg-green-50 border border-green-100 px-2.5 py-0.5 lg:px-3 lg:py-1 rounded-full mb-1.5 shadow-sm">
+                                <span class="relative flex h-1.5 w-1.5 lg:h-2 lg:w-2">
                                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 lg:h-2 lg:w-2 bg-green-500"></span>
                                 </span>
-                                <span class="text-[10px] font-extrabold text-green-700 uppercase tracking-widest">Fast Response</span>
+                                <span class="text-[9px] lg:text-[10px] font-extrabold text-green-700 uppercase tracking-widest">Fast Response</span>
                             </div>
                             
-                            <h3 class="text-brand-dark font-serif font-bold text-xl lg:text-2xl">Unlock Your Best Quote</h3>
-                            <p class="text-slate-500 text-xs lg:text-sm mt-1">See how much you can save on premium cleaning.</p>
+                            <h3 class="text-brand-dark font-serif font-bold text-lg lg:text-2xl">Unlock Your Best Quote</h3>
+                            <p class="text-slate-500 text-[10px] lg:text-sm mt-0.5">See how much you can save on premium cleaning.</p>
                         </div>
 
-                        <div class="p-5 lg:p-8 bg-white">
-                            <form id="heroForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <div class="p-4 lg:p-8 bg-white">
+                            <form id="heroForm" class="space-y-3 lg:space-y-4" onsubmit="handleFormSubmit(event)">
                                 
                                 <!-- Company Field -->
                                 <div>
                                     <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Company / Organization</label>
                                     <div class="relative group input-ring rounded-lg transition-all duration-300">
                                         <i class="ph ph-buildings absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-gold transition-colors"></i>
-                                        <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-10 pr-4 text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Ex: Tech Solutions Inc.">
+                                        <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-4 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Ex: Tech Solutions Inc.">
                                     </div>
                                 </div>
                                 
@@ -393,14 +397,14 @@
                                         <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Contact Name</label>
                                         <div class="relative group input-ring rounded-lg">
                                             <i class="ph ph-user absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-gold transition-colors"></i>
-                                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-9 pr-3 text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Name">
+                                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-9 pr-3 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Name">
                                         </div>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Phone Number</label>
                                         <div class="relative group input-ring rounded-lg">
                                             <i class="ph ph-phone absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-gold transition-colors"></i>
-                                            <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-9 pr-3 text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="(555)...">
+                                            <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-9 pr-3 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="(555)...">
                                         </div>
                                     </div>
                                 </div>
@@ -410,19 +414,19 @@
                                     <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">What do you need?</label>
                                     <div class="relative group input-ring rounded-lg">
                                         <i class="ph ph-broom absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-gold transition-colors"></i>
-                                        <select class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-10 pr-10 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer">
+                                        <select class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-10 text-xs lg:text-sm text-slate-700 font-medium focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer">
                                             <option>Daily/Weekly Office Cleaning</option>
                                             <option>Deep Cleaning / One-Time</option>
                                             <option>Floor Care (Strip & Wax)</option>
                                             <option>Medical Facility Cleaning</option>
                                             <option>Post-Construction Cleanup</option>
                                         </select>
-                                        <i class="ph ph-caret-down absolute right-4 top-3.5 text-slate-400 pointer-events-none group-focus-within:text-brand-gold"></i>
+                                        <i class="ph ph-caret-down absolute right-4 top-3 text-slate-400 pointer-events-none group-focus-within:text-brand-gold"></i>
                                     </div>
                                 </div>
 
                                 <!-- Action Button -->
-                                <button type="submit" class="btn-gold w-full text-brand-dark font-extrabold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 group text-sm tracking-wide mt-2 hover:scale-[1.02] transition-transform">
+                                <button type="submit" class="btn-gold w-full text-brand-dark font-extrabold py-3 lg:py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 group text-xs lg:text-sm tracking-wide mt-2 hover:scale-[1.02] transition-transform">
                                     <span>GET MY FREE PROPOSAL</span>
                                     <i class="ph ph-paper-plane-right text-lg group-hover:translate-x-1 transition-transform"></i>
                                 </button>
