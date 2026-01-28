@@ -42,7 +42,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Configuração de Cores -->
+    <!-- Configuração de Cores (NOVA PALETA AZUL E VERDE) -->
     <script>
         tailwind.config = {
             theme: {
@@ -53,10 +53,12 @@
                     },
                     colors: {
                         brand: {
-                            gold: '#D4AF37',       
-                            goldLight: '#F3E5AB',  
-                            dark: '#0B1120',       
-                            navy: '#162032',       
+                            blue: '#005792',       // Azul Forte (Logo)
+                            blueLight: '#E0F2FE',  // Azul Claro Fundo
+                            green: '#78BE20',      // Verde Vibrante (Logo)
+                            greenDark: '#4d8210',  // Verde Escuro Hover
+                            dark: '#0f172a',       // Slate 900
+                            navy: '#1e3a8a',       // Blue 800
                             surface: '#F8FAFC',    
                         }
                     },
@@ -70,13 +72,12 @@
 
     <style>
         /* Estilos Premium e Animações */
-        /* Correção de Scroll: overflow-x-hidden no body, não html */
         body { overflow-x: hidden; width: 100%; }
         
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B1120; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #005792; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #78BE20; }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -92,42 +93,44 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: #D4AF37;
+            background-color: #78BE20; /* Verde da marca */
             transition: width 0.3s ease;
         }
         .nav-link:hover::after {
             width: 100%;
         }
 
-        /* Botão Premium */
-        .btn-gold {
-            background: linear-gradient(135deg, #D4AF37 0%, #B89628 100%);
+        /* Botão Premium (Blue/Green Gradient) */
+        .btn-primary {
+            background: linear-gradient(135deg, #005792 0%, #007cc2 100%);
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 87, 146, 0.3);
+            color: white;
         }
-        .btn-gold:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.5);
-            background: linear-gradient(135deg, #E6C200 0%, #D4AF37 100%);
+            box-shadow: 0 10px 25px -5px rgba(0, 87, 146, 0.5);
+            background: linear-gradient(135deg, #007cc2 0%, #005792 100%);
         }
-        .btn-gold::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: 0.6s;
+        
+        .btn-accent {
+            background: linear-gradient(135deg, #78BE20 0%, #9ad64d 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(120, 190, 32, 0.3);
+            color: white;
         }
-        .btn-gold:hover::after {
-            left: 100%;
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(120, 190, 32, 0.5);
+            background: linear-gradient(135deg, #9ad64d 0%, #78BE20 100%);
         }
 
-        .text-gold-gradient {
-            background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
+        .text-gradient {
+            background: linear-gradient(135deg, #78BE20 0%, #005792 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-size: 200% auto;
@@ -164,16 +167,10 @@
             -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
 
-        /* Badge Glow */
-        .badge-glow {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-        }
-
         /* Input Focus Ring Custom */
         .input-ring:focus-within {
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
-            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(120, 190, 32, 0.2);
+            border-color: #78BE20;
         }
 
         /* Parallax Utilities */
@@ -185,51 +182,34 @@
         }
         @media (max-width: 768px) {
             .parallax-section {
-                background-attachment: scroll; /* Disable fixed attachment on mobile for performance */
+                background-attachment: scroll; 
             }
         }
 
         /* DYNAMIC MODAL ANIMATIONS */
-        .modal-backdrop {
-            animation: fadeIn 0.3s ease-out forwards;
-        }
-        
+        .modal-backdrop { animation: fadeIn 0.3s ease-out forwards; }
         @keyframes modalSpring {
             0% { opacity: 0; transform: scale(0.9) translateY(20px); }
             60% { opacity: 1; transform: scale(1.02) translateY(0); }
             100% { transform: scale(1) translateY(0); }
         }
-        
-        .modal-animate-enter {
-            animation: modalSpring 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        /* Staggered Content Animation */
-        .stagger-in {
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeInUp 0.5s ease-out forwards;
-        }
-        
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .modal-animate-enter { animation: modalSpring 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .stagger-in { opacity: 0; transform: translateY(10px); animation: fadeInUp 0.5s ease-out forwards; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
         .success-checkmark { width: 80px; height: 80px; margin: 0 auto; }
-        .check-icon { width: 80px; height: 80px; position: relative; border-radius: 50%; box-sizing: content-box; border: 4px solid #4CAF50; }
+        .check-icon { width: 80px; height: 80px; position: relative; border-radius: 50%; box-sizing: content-box; border: 4px solid #78BE20; }
         .check-icon::before { top: 3px; left: -2px; width: 30px; transform-origin: 100% 50%; border-radius: 100px 0 0 100px; }
         .check-icon::after { top: 0; left: 30px; width: 60px; transform-origin: 0 50%; border-radius: 0 100px 100px 0; animation: rotate-circle 4.25s ease-in; }
     </style>
 </head>
-<body class="font-sans text-slate-600 antialiased bg-brand-surface selection:bg-brand-gold selection:text-brand-dark overflow-x-hidden">
+<body class="font-sans text-slate-600 antialiased bg-brand-surface selection:bg-brand-green selection:text-white overflow-x-hidden">
 
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-brand-gold z-[60] w-0 transition-all duration-100 ease-out"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-brand-green z-[60] w-0 transition-all duration-100 ease-out"></div>
 
-    <!-- Navigation (PREMIUM: Transparent at top, White on scroll) -->
-    <!-- Removed border on mobile by using lg:border-b -->
+    <!-- Navigation -->
     <header id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4 bg-transparent border-none lg:border-b lg:border-white/10 text-white">
         <div class="container mx-auto px-4 lg:px-6">
-            <!-- Height: h-16 (mobile) lg:h-24 (desktop) -->
             <div id="nav-container" class="flex justify-between items-center h-16 lg:h-24 transition-all duration-500">
                 <!-- LOGO -->
                 <a href="#" class="flex items-center gap-3 group relative h-full py-1 overflow-hidden">
@@ -241,18 +221,18 @@
                 </a>
 
                 <nav class="hidden lg:flex items-center space-x-8 xl:space-x-12 text-sm font-bold tracking-wide uppercase">
-                    <a href="#services" class="nav-link hover:text-brand-gold transition-colors duration-300 text-white">Services</a>
-                    <a href="#industries" class="nav-link hover:text-brand-gold transition-colors duration-300 text-white">Industries</a>
-                    <a href="#testimonials" class="nav-link hover:text-brand-gold transition-colors duration-300 text-white">Reviews</a>
-                    <a href="#faq" class="nav-link hover:text-brand-gold transition-colors duration-300 text-white">FAQ</a>
+                    <a href="#services" class="nav-link hover:text-brand-green transition-colors duration-300 text-white">Services</a>
+                    <a href="#industries" class="nav-link hover:text-brand-green transition-colors duration-300 text-white">Industries</a>
+                    <a href="#testimonials" class="nav-link hover:text-brand-green transition-colors duration-300 text-white">Reviews</a>
+                    <a href="#faq" class="nav-link hover:text-brand-green transition-colors duration-300 text-white">FAQ</a>
                     <!-- Clickable Phone Number in Nav -->
-                    <a id="nav-phone" href="tel:+14703804785" class="flex items-center gap-2 font-extrabold hover:text-brand-gold transition-colors border px-5 py-2.5 rounded-full text-xs xl:text-sm shadow-sm hover:shadow-md text-white border-white/20 bg-white/10">
-                        <i class="ph ph-phone-call text-lg text-brand-gold"></i> +1 (470) 380-4785
+                    <a id="nav-phone" href="tel:+14703804785" class="flex items-center gap-2 font-extrabold hover:text-brand-green transition-colors border px-5 py-2.5 rounded-full text-xs xl:text-sm shadow-sm hover:shadow-md text-white border-white/20 bg-white/10">
+                        <i class="ph ph-phone-call text-lg text-brand-green"></i> +1 (470) 380-4785
                     </a>
                 </nav>
 
                 <div class="hidden lg:block">
-                    <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'})" class="btn-gold text-brand-dark px-8 py-3.5 rounded shadow-lg font-bold text-xs uppercase tracking-widest hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                    <button onclick="document.getElementById('quote-section').scrollIntoView({behavior: 'smooth'})" class="btn-primary px-8 py-3.5 rounded shadow-lg font-bold text-xs uppercase tracking-widest hover:shadow-xl transition-all transform hover:-translate-y-0.5">
                         Get a Quote
                     </button>
                 </div>
@@ -266,174 +246,168 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-2xl h-[calc(100vh-100px)] overflow-y-auto text-slate-800">
             <div class="flex flex-col p-8 space-y-8 text-center">
-                <a href="#services" class="text-lg font-bold hover:text-brand-gold border-b border-slate-50 pb-4">Services</a>
-                <a href="#industries" class="text-lg font-bold hover:text-brand-gold border-b border-slate-50 pb-4">Industries</a>
-                <a href="#testimonials" class="text-lg font-bold hover:text-brand-gold border-b border-slate-50 pb-4">Reviews</a>
-                <a href="tel:+14703804785" class="text-brand-gold text-xl font-black flex justify-center gap-2 pb-4"><i class="ph ph-phone"></i> Call Now</a>
-                <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'})" class="btn-gold w-full text-brand-dark py-5 rounded-xl font-bold text-lg shadow-xl">Request Quote</button>
+                <a href="#services" class="text-lg font-bold hover:text-brand-blue border-b border-slate-50 pb-4">Services</a>
+                <a href="#industries" class="text-lg font-bold hover:text-brand-blue border-b border-slate-50 pb-4">Industries</a>
+                <a href="#testimonials" class="text-lg font-bold hover:text-brand-blue border-b border-slate-50 pb-4">Reviews</a>
+                <a href="tel:+14703804785" class="text-brand-blue text-xl font-black flex justify-center gap-2 pb-4"><i class="ph ph-phone"></i> Call Now</a>
+                <button onclick="document.getElementById('quote-section').scrollIntoView({behavior: 'smooth'})" class="btn-primary w-full py-5 rounded-xl font-bold text-lg shadow-xl">Request Quote</button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section with Form -->
-    <!-- COMPACT MOBILE ADJUSTMENTS: pt-20 pb-8 (Mobile) | pt-40 pb-24 (Desktop) -->
-    <!-- Use items-start on mobile to push content up -->
-    <section class="relative min-h-[100dvh] flex items-start lg:items-center pt-20 pb-8 lg:pt-40 lg:pb-24 overflow-hidden bg-slate-900">
-        <!-- CHANGED from IMG tag to DIV with background-image for stability -->
+    <!-- Hero Section -->
+    <section class="relative min-h-[100dvh] flex items-start lg:items-center pt-20 pb-8 lg:pt-40 lg:pb-24 overflow-hidden bg-brand-dark">
+        <!-- Background Image -->
         <div id="hero-bg" class="absolute inset-0 z-0 scale-105" 
              style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
             
-            <!-- OVERLAY: Keeping it light (40%) to show off the clean space -->
-            <div class="absolute inset-0 bg-brand-dark/40 z-10"></div>
-            <!-- Gradient: Subtle side gradient for text readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/80 via-brand-dark/30 to-transparent z-10"></div>
+            <!-- OVERLAY: Modified for better Blue/Green contrast -->
+            <div class="absolute inset-0 bg-brand-blue/30 mix-blend-multiply z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/40 to-transparent z-10"></div>
         </div>
         
         <div class="container mx-auto px-4 lg:px-6 relative z-20">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
                 
                 <!-- Hero Copy -->
-                <!-- Reduced Top Padding on Mobile: pt-4 -->
                 <div class="lg:col-span-7 reveal active text-center lg:text-left pt-4 lg:pt-0">
-                    <div class="inline-flex items-center gap-2 mb-4 lg:mb-6 bg-brand-gold/10 border border-brand-gold/20 px-3 py-1 lg:px-3 lg:py-1.5 rounded-full backdrop-blur-sm">
-                        <span class="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span class="text-brand-gold font-bold text-[9px] lg:text-[10px] lg:text-xs uppercase tracking-[0.2em]">Atlanta's Premier Choice</span>
+                    <div class="inline-flex items-center gap-2 mb-4 lg:mb-6 bg-brand-blue/20 border border-brand-green/30 px-3 py-1 lg:px-3 lg:py-1.5 rounded-full backdrop-blur-sm shadow-lg">
+                        <span class="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-brand-green animate-pulse"></span>
+                        <span class="text-white font-bold text-[9px] lg:text-[10px] lg:text-xs uppercase tracking-[0.2em]">Atlanta's Premier Choice</span>
                     </div>
                     
-                    <!-- Increased Mobile Text size to text-4xl -->
-                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-serif text-white leading-tight mb-3 lg:mb-6 drop-shadow-lg">
-                        Atlanta’s Gold Standard in<br>
-                        <span class="italic text-gold-gradient">Commercial Cleaning.</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-serif text-white leading-tight mb-3 lg:mb-6 drop-shadow-xl">
+                        A Cleaner Future for<br>
+                        <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-white">Your Business.</span>
                     </h1>
                     
-                    <p class="text-xs sm:text-base md:text-lg text-slate-200 max-w-xl leading-relaxed font-light mb-6 lg:mb-10 mx-auto lg:mx-0 drop-shadow-md">
-                        From Buckhead to Midtown, we keep Atlanta’s businesses spotless. Trust the premier janitorial service committed to your company's image.
+                    <p class="text-xs sm:text-base md:text-lg text-slate-100 max-w-xl leading-relaxed font-light mb-6 lg:mb-10 mx-auto lg:mx-0 drop-shadow-md">
+                        From Buckhead to Midtown, we bring the highest standard of cleanliness to Atlanta. Professional, reliable, and tailored to your specific needs.
                     </p>
 
-                     <!-- COMPACT MOBILE BADGES & CTA AREA -->
+                     <!-- MOBILE CTA (Replaces Form on Mobile) -->
                     <div class="flex flex-col gap-4 lg:gap-6">
                         
-                        <!-- Primary Action -->
-                        <div class="flex justify-center lg:justify-start">
-                            <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="group relative px-6 py-3 lg:px-8 lg:py-3.5 rounded-full bg-brand-gold/10 border-2 border-brand-gold text-brand-gold font-bold text-[10px] lg:text-xs uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 w-full sm:w-auto overflow-hidden">
+                        <!-- Primary Action - Mobile/Desktop split logic handled via classes -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            
+                            <!-- MOBILE ONLY: SCROLL TO FORM CTA -->
+                            <button onclick="document.getElementById('quote-section').scrollIntoView({behavior: 'smooth'})" class="lg:hidden btn-primary px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-xl animate-pulse">
+                                Get a Free Quote <i class="ph ph-arrow-down ml-2"></i>
+                            </button>
+
+                            <!-- DESKTOP ONLY: Services CTA -->
+                            <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="hidden lg:flex group relative px-8 py-3.5 rounded-full bg-white/10 border-2 border-white/30 text-white font-bold text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-brand-blue transition-all duration-300 w-full sm:w-auto overflow-hidden">
                                 <span class="relative z-10 flex items-center justify-center gap-2">Explore Services <i class="ph ph-arrow-down"></i></span>
                             </button>
                         </div>
 
-                        <!-- High-End Trust Badges (GRID ON MOBILE - NO SCROLL) -->
-                        <div class="grid grid-cols-2 gap-2 lg:flex lg:flex-wrap lg:justify-start lg:gap-4">
+                        <!-- High-End Trust Badges (GRID ON MOBILE) -->
+                        <div class="grid grid-cols-2 gap-2 lg:flex lg:flex-wrap lg:justify-start lg:gap-4 mt-2 lg:mt-0">
                             
-                            <!-- Badge 1: INSURED (High Priority) -->
-                            <div class="flex items-center gap-2 lg:gap-3 bg-brand-dark/40 backdrop-blur-xl border border-brand-gold/40 rounded-lg lg:rounded-xl px-2 py-2 lg:px-4 lg:py-3 shadow-lg cursor-default">
-                                <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-br from-brand-gold to-yellow-600 flex items-center justify-center text-brand-dark shadow-lg shrink-0">
-                                    <!-- FIXED: Inline SVG Shield Icon -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-4 h-4 lg:w-6 lg:h-6 fill-brand-dark">
+                            <!-- Badge 1: INSURED -->
+                            <div class="flex items-center gap-2 lg:gap-3 bg-brand-dark/40 backdrop-blur-xl border border-brand-green/30 rounded-lg lg:rounded-xl px-2 py-2 lg:px-4 lg:py-3 shadow-lg cursor-default">
+                                <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-br from-brand-green to-teal-700 flex items-center justify-center text-white shadow-lg shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-4 h-4 lg:w-6 lg:h-6 fill-current">
                                         <path d="M239.86,89.55l-104-56a16,16,0,0,0-15.72,0l-104,56A16,16,0,0,0,8,103.62V144c0,58.74,52.88,100.22,116.32,111.45a16.14,16.14,0,0,0,5.49.09C194.27,245.89,248,203.93,248,144V103.62A16,16,0,0,0,239.86,89.55ZM128,239.81C70.61,228.46,24,190.69,24,144V103.62L128,47.62l104,56V144C232,190.87,185.29,228.62,128,239.81Zm53.66-133.47-64,64a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32L112,152.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path>
                                     </svg>
                                 </div>
                                 <div class="flex flex-col overflow-hidden">
-                                    <span class="text-[8px] lg:text-[10px] font-bold text-brand-gold uppercase tracking-wider mb-0.5 truncate">100% Protected</span>
+                                    <span class="text-[8px] lg:text-[10px] font-bold text-brand-green uppercase tracking-wider mb-0.5 truncate">100% Protected</span>
                                     <span class="text-xs lg:text-sm font-black text-white uppercase tracking-wide leading-none truncate">Licensed</span>
                                 </div>
                             </div>
 
-                            <!-- PREMIUM GOOGLE BADGE -->
-                            <a href="#testimonials" class="group flex items-center gap-3 bg-white/95 backdrop-blur-xl border border-white/60 rounded-full pl-2 pr-6 py-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)] hover:scale-105 transition-all duration-300 w-auto cursor-pointer">
-                                <div class="bg-white p-2 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5">
+                            <!-- Badge 2: GOOGLE -->
+                            <div class="flex items-center gap-2 lg:gap-3 bg-brand-dark/40 backdrop-blur-xl border border-white/10 rounded-lg lg:rounded-xl px-2 py-2 lg:px-4 lg:py-3 shadow-lg cursor-default">
+                                <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white flex items-center justify-center shadow-lg shrink-0 p-1.5 lg:p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-full h-full">
+                                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6.19c4.51-4.18 7.09-10.36 7.09-17.84z"></path>
+                                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                                        <path fill="#34A853" d="M24 48c6.48 0 11.95-2.13 15.89-5.81l-7.73-6.19c-2.14 1.44-4.9 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                                        <path fill="none" d="M0 0h48v48H0z"></path>
+                                    </svg>
                                 </div>
-                                <div class="flex flex-col justify-center">
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="font-black text-slate-800 text-sm leading-none">5.0</span>
-                                        <div class="flex text-[#FBBC04] text-[10px] gap-0.5">
-                                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                                        </div>
+                                <div class="flex flex-col overflow-hidden">
+                                    <div class="flex text-yellow-400 text-[10px] gap-0.5 mb-0.5">
+                                        <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
                                     </div>
-                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider leading-none group-hover:text-brand-gold transition-colors mt-0.5 whitespace-nowrap">Google Reviews</span>
+                                    <span class="text-xs lg:text-sm font-bold text-slate-200 uppercase tracking-wider leading-none truncate">5.0 Reviews</span>
                                 </div>
-                            </a>
+                            </div>
 
                         </div>
                     </div>
                 </div>
 
-                <!-- Hero Form (MOBILE: Stacked below, compact padding) -->
-                <div class="lg:col-span-5 reveal active delay-200 w-full max-w-md mx-auto lg:max-w-full">
+                <!-- Hero Form (DESKTOP ONLY: HIDDEN ON MOBILE) -->
+                <div class="hidden lg:block lg:col-span-5 reveal active delay-200 w-full max-w-md mx-auto lg:max-w-full">
                     <div class="bg-white rounded-2xl shadow-[0_30px_70px_-10px_rgba(0,0,0,0.6)] overflow-hidden relative transform transition-transform hover:scale-[1.01] duration-500 border border-white/20">
                         
                         <!-- Premium Header -->
-                        <div class="bg-gradient-to-b from-slate-50 to-white p-5 lg:p-6 text-center border-b border-slate-100 relative">
-                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-navy via-brand-gold to-brand-navy"></div>
+                        <div class="bg-gradient-to-b from-slate-50 to-white p-4 lg:p-6 text-center border-b border-slate-100 relative">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-blue via-brand-green to-brand-blue"></div>
                             
-                            <div class="inline-flex items-center gap-1.5 bg-green-50 border border-green-100 px-3 py-1 rounded-full mb-2 shadow-sm">
-                                <span class="relative flex h-2 w-2">
+                            <div class="inline-flex items-center gap-1.5 bg-green-50 border border-green-100 px-2.5 py-0.5 lg:px-3 lg:py-1 rounded-full mb-1.5 shadow-sm">
+                                <span class="relative flex h-1.5 w-1.5 lg:h-2 lg:w-2">
                                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 lg:h-2 lg:w-2 bg-green-500"></span>
                                 </span>
-                                <span class="text-[10px] font-extrabold text-green-700 uppercase tracking-widest">Fast Response</span>
+                                <span class="text-[9px] lg:text-[10px] font-extrabold text-green-700 uppercase tracking-widest">Fast Response</span>
                             </div>
                             
-                            <h3 class="text-brand-dark font-serif font-bold text-xl lg:text-2xl">Get Your Custom Quote</h3>
-                            <p class="text-slate-500 text-xs lg:text-sm mt-1">See how much you can save on premium cleaning.</p>
+                            <h3 class="text-brand-dark font-serif font-bold text-lg lg:text-2xl">Get Your Custom Quote</h3>
+                            <p class="text-slate-500 text-[10px] lg:text-sm mt-0.5">See how much you can save.</p>
                         </div>
 
-                        <div class="p-5 lg:p-8 bg-white">
-                            <form id="heroForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
-                                
-                                <!-- Company Field -->
+                        <div class="p-4 lg:p-8 bg-white">
+                            <!-- DESKTOP FORM ID different from bottom one -->
+                            <form id="heroFormDesktop" class="space-y-3 lg:space-y-4" onsubmit="handleFormSubmit(event)">
                                 <div>
                                     <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Company / Organization</label>
                                     <div class="relative group input-ring rounded-lg transition-all duration-300">
-                                        <i class="ph ph-buildings absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-gold transition-colors"></i>
-                                        <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-10 pr-4 text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Ex: Tech Solutions Inc.">
+                                        <i class="ph ph-buildings absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
+                                        <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-4 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Ex: Tech Solutions Inc.">
                                     </div>
                                 </div>
-                                
-                                <!-- Name & Phone Row -->
                                 <div class="grid grid-cols-2 gap-3">
                                     <div>
                                         <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Contact Name</label>
                                         <div class="relative group input-ring rounded-lg">
-                                            <i class="ph ph-user absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-gold transition-colors"></i>
-                                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-9 pr-3 text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Name">
+                                            <i class="ph ph-user absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-green transition-colors"></i>
+                                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-9 pr-3 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Name">
                                         </div>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Phone Number</label>
                                         <div class="relative group input-ring rounded-lg">
-                                            <i class="ph ph-phone absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-gold transition-colors"></i>
-                                            <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-9 pr-3 text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="(555)...">
+                                            <i class="ph ph-phone absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-green transition-colors"></i>
+                                            <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-9 pr-3 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="(555)...">
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Service Select -->
                                 <div>
                                     <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">What do you need?</label>
                                     <div class="relative group input-ring rounded-lg">
-                                        <i class="ph ph-broom absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-gold transition-colors"></i>
-                                        <select class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 pl-10 pr-10 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer">
+                                        <i class="ph ph-broom absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
+                                        <select class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-10 text-xs lg:text-sm text-slate-700 font-medium focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer">
                                             <option>Daily/Weekly Office Cleaning</option>
                                             <option>Deep Cleaning / One-Time</option>
                                             <option>Floor Care (Strip & Wax)</option>
                                             <option>Medical Facility Cleaning</option>
-                                            <option>Post-Construction Cleanup</option>
                                         </select>
-                                        <i class="ph ph-caret-down absolute right-4 top-3.5 text-slate-400 pointer-events-none group-focus-within:text-brand-gold"></i>
+                                        <i class="ph ph-caret-down absolute right-4 top-3 text-slate-400 pointer-events-none group-focus-within:text-brand-green"></i>
                                     </div>
                                 </div>
-
-                                <!-- Action Button -->
-                                <button type="submit" class="btn-gold w-full text-brand-dark font-extrabold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 group text-sm tracking-wide mt-2 hover:scale-[1.02] transition-transform">
+                                <button type="submit" class="btn-primary w-full font-extrabold py-3 lg:py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 group text-xs lg:text-sm tracking-wide mt-2 hover:scale-[1.02] transition-transform">
                                     <span>GET MY FREE PROPOSAL</span>
                                     <i class="ph ph-paper-plane-right text-lg group-hover:translate-x-1 transition-transform"></i>
                                 </button>
-                                
-                                <!-- Trust Footer -->
                                 <div class="flex items-center justify-center gap-3 mt-2 text-[10px] text-slate-400 font-medium pt-2 border-t border-slate-50">
                                     <span class="flex items-center gap-1"><i class="ph ph-lock-key text-green-500"></i> No Spam</span>
                                     <span class="w-1 h-1 rounded-full bg-slate-300"></span>
-                                    <span class="flex items-center gap-1"><i class="ph ph-shield-check text-brand-gold"></i> Secure SSL</span>
+                                    <span class="flex items-center gap-1"><i class="ph ph-shield-check text-brand-blue"></i> Secure SSL</span>
                                 </div>
                             </form>
                         </div>
@@ -449,16 +423,16 @@
         <div class="container mx-auto px-6">
             <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">Trusted by Atlanta's Leading Businesses</p>
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-60 hover:opacity-100 transition-opacity duration-500">
-                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-dark transition-colors cursor-default">
+                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-blue transition-colors cursor-default">
                     <i class="ph ph-bank text-2xl"></i> ATL FINCORP
                 </div>
-                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-dark transition-colors cursor-default">
+                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-blue transition-colors cursor-default">
                     <i class="ph ph-hospital text-2xl"></i> GA MedCare+
                 </div>
-                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-dark transition-colors cursor-default">
+                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-blue transition-colors cursor-default">
                     <i class="ph ph-buildings text-2xl"></i> PeachTower
                 </div>
-                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-dark transition-colors cursor-default">
+                <div class="flex items-center gap-2 text-base md:text-lg font-bold text-slate-700 hover:text-brand-blue transition-colors cursor-default">
                     <i class="ph ph-rocket text-2xl"></i> TechFlow GA
                 </div>
             </div>
@@ -472,48 +446,48 @@
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 lg:mb-16 reveal">
                 <div class="max-w-2xl">
                     <div class="flex items-center gap-2 mb-4">
-                        <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em]">Our Expertise</span>
+                        <span class="text-brand-green font-bold text-xs uppercase tracking-[0.2em]">Our Expertise</span>
                         <span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold uppercase rounded-full border border-green-200">Certified</span>
                     </div>
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-brand-dark">Janitorial Solutions for Atlanta</h2>
                     <p class="mt-4 text-slate-500 text-base md:text-lg">From reception areas in Downtown to boardrooms in Sandy Springs, we ensure every inch projects professionalism.</p>
                 </div>
                 <div class="hidden md:block pb-2">
-                    <a href="#contact" class="text-brand-dark font-bold text-sm uppercase tracking-widest border-b-2 border-brand-gold/50 pb-1 hover:text-brand-gold hover:border-brand-gold transition-colors">See Full Service List</a>
+                    <button onclick="document.getElementById('quote-section').scrollIntoView({behavior: 'smooth'})" class="text-brand-dark font-bold text-sm uppercase tracking-widest border-b-2 border-brand-green/50 pb-1 hover:text-brand-green hover:border-brand-green transition-colors">See Full Service List</button>
                 </div>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 <!-- Card 1 -->
                 <div class="group bg-white p-8 shadow-md hover:shadow-2xl transition-all duration-500 border border-slate-100 relative overflow-hidden rounded-2xl hover:-translate-y-2">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-gold to-brand-navy transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-blue to-brand-green transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                     <div class="absolute top-4 right-4 bg-brand-surface text-brand-dark text-[10px] font-bold px-2 py-1 rounded border border-slate-200">MOST POPULAR</div>
-                    <div class="w-16 h-16 bg-brand-surface rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300 shadow-inner">
+                    <div class="w-16 h-16 bg-brand-surface rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-blue transition-colors duration-300 shadow-inner">
                         <i class="ph ph-office-chair text-3xl text-brand-dark group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold text-brand-dark mb-3">Office Cleaning</h3>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">Trash removal, vacuuming, dusting, and restroom sanitization on a schedule that fits your business hours.</p>
-                    <a href="#contact" class="text-brand-gold font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Get Quote <i class="ph ph-caret-right"></i></a>
+                    <button onclick="document.getElementById('quote-section').scrollIntoView({behavior: 'smooth'})" class="text-brand-blue font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Get Quote <i class="ph ph-caret-right"></i></button>
                 </div>
                 <!-- Card 2 -->
-                <div class="group bg-brand-dark p-8 shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 relative overflow-hidden rounded-2xl border border-white/5 transform md:-translate-y-4 hover:-translate-y-6">
+                <div class="group bg-brand-blue p-8 shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 relative overflow-hidden rounded-2xl border border-white/5 transform md:-translate-y-4 hover:-translate-y-6">
                     <div class="absolute top-0 right-0 p-4 opacity-10"><i class="ph ph-sparkle text-8xl text-white"></i></div>
-                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 border border-white/10 shadow-inner group-hover:bg-brand-gold group-hover:border-transparent transition-colors duration-300">
-                        <i class="ph ph-sparkle text-3xl text-brand-gold group-hover:text-brand-dark transition-colors"></i>
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 border border-white/10 shadow-inner group-hover:bg-brand-green group-hover:border-transparent transition-colors duration-300">
+                        <i class="ph ph-sparkle text-3xl text-brand-green group-hover:text-brand-dark transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Floor Care & Carpet</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Extend the life of your flooring. We offer stripping, waxing, buffing, and commercial carpet extraction.</p>
-                    <a href="#contact" class="text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Get Quote <i class="ph ph-caret-right"></i></a>
+                    <p class="text-slate-200 text-sm leading-relaxed mb-6">Extend the life of your flooring. We offer stripping, waxing, buffing, and commercial carpet extraction.</p>
+                    <button onclick="document.getElementById('quote-section').scrollIntoView({behavior: 'smooth'})" class="text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Get Quote <i class="ph ph-caret-right"></i></button>
                 </div>
                 <!-- Card 3 -->
                 <div class="group bg-white p-8 shadow-md hover:shadow-2xl transition-all duration-500 border border-slate-100 relative overflow-hidden rounded-2xl hover:-translate-y-2">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-navy to-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right"></div>
-                    <div class="w-16 h-16 bg-brand-surface rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-gold transition-colors duration-300 shadow-inner">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-green to-brand-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right"></div>
+                    <div class="w-16 h-16 bg-brand-surface rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-blue transition-colors duration-300 shadow-inner">
                         <i class="ph ph-virus text-3xl text-brand-dark group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold text-brand-dark mb-3">Disinfection Services</h3>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">Electrostatic spraying and high-touch point disinfection to keep your employees healthy and safe.</p>
-                    <a href="#contact" class="text-brand-gold font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Get Quote <i class="ph ph-caret-right"></i></a>
+                    <button onclick="document.getElementById('quote-section').scrollIntoView({behavior: 'smooth'})" class="text-brand-blue font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Get Quote <i class="ph ph-caret-right"></i></button>
                 </div>
             </div>
         </div>
@@ -523,7 +497,7 @@
     <section id="industries" class="py-16 md:py-24 bg-white relative">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 lg:mb-16 reveal">
-                <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] block mb-3">Tailored Solutions</span>
+                <span class="text-brand-green font-bold text-xs uppercase tracking-[0.2em] block mb-3">Tailored Solutions</span>
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif text-brand-dark">Specialized for Your Industry</h2>
                 <p class="mt-4 text-slate-500 max-w-2xl mx-auto">We adapt our protocols to the unique compliance and aesthetic needs of your sector.</p>
             </div>
@@ -539,41 +513,26 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent opacity-90 transition-opacity duration-300"></div>
                     
                     <!-- Floating Icon Badge -->
-                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-gold group-hover:border-brand-gold transition-colors duration-300 z-10 shadow-lg">
+                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-green group-hover:border-brand-green transition-colors duration-300 z-10 shadow-lg">
                         <i class="ph ph-briefcase text-2xl text-white group-hover:text-brand-dark transition-colors"></i>
                     </div>
 
                     <!-- Content -->
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <span class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Workplace Excellence</span>
+                            <span class="text-brand-green font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Workplace Excellence</span>
                             
                             <h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight">Corporate Offices</h3>
                             
                             <!-- Animated Line -->
-                            <div class="w-8 h-1 bg-brand-gold mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
+                            <div class="w-8 h-1 bg-brand-green mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
                             
                             <p class="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
                                 Elevate your professional image with spotless boardrooms, lobbies, and workstations.
                             </p>
 
-                            <!-- Features List (Reveals on Hover) -->
-                            <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
-                                <ul class="overflow-hidden space-y-2 mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium">
-                                        <i class="ph ph-check-circle text-brand-gold"></i> Conference Room Detail
-                                    </li>
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium">
-                                        <i class="ph ph-check-circle text-brand-gold"></i> Restroom Sanitization
-                                    </li>
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium">
-                                        <i class="ph ph-check-circle text-brand-gold"></i> Day Porter Services
-                                    </li>
-                                </ul>
-                            </div>
-
                             <!-- CTA Link -->
-                            <div class="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
+                            <div class="flex items-center gap-2 text-brand-green font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
                                 View Plan <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
@@ -585,26 +544,19 @@
                     <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80" alt="Medical" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent opacity-90 transition-opacity duration-300"></div>
                     
-                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-gold group-hover:border-brand-gold transition-colors duration-300 z-10 shadow-lg">
+                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-green group-hover:border-brand-green transition-colors duration-300 z-10 shadow-lg">
                         <i class="ph ph-first-aid text-2xl text-white group-hover:text-brand-dark transition-colors"></i>
                     </div>
 
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <span class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Healthcare Grade</span>
+                            <span class="text-brand-green font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Healthcare Grade</span>
                             <h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight">Medical & Dental</h3>
-                            <div class="w-8 h-1 bg-brand-gold mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
+                            <div class="w-8 h-1 bg-brand-green mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
                             <p class="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
                                 Strict adherence to HIPAA and OSHA standards using hospital-grade disinfectants.
                             </p>
-                            <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
-                                <ul class="overflow-hidden space-y-2 mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Terminal Cleaning</li>
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Waiting Area Care</li>
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Cross-contamination Control</li>
-                                </ul>
-                            </div>
-                            <div class="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
+                            <div class="flex items-center gap-2 text-brand-green font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
                                 View Plan <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
@@ -616,26 +568,19 @@
                     <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Retail" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent opacity-90 transition-opacity duration-300"></div>
                     
-                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-gold group-hover:border-brand-gold transition-colors duration-300 z-10 shadow-lg">
+                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-green group-hover:border-brand-green transition-colors duration-300 z-10 shadow-lg">
                         <i class="ph ph-shopping-bag text-2xl text-white group-hover:text-brand-dark transition-colors"></i>
                     </div>
 
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <span class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Customer Experience</span>
+                            <span class="text-brand-green font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Customer Experience</span>
                             <h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight">Retail & Showrooms</h3>
-                            <div class="w-8 h-1 bg-brand-gold mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
+                            <div class="w-8 h-1 bg-brand-green mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
                             <p class="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
                                 Create an inviting atmosphere with crystal-clear glass and gleaming floors.
                             </p>
-                            <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
-                                <ul class="overflow-hidden space-y-2 mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Floor Maintenance</li>
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Window Washing</li>
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Dusting Displays</li>
-                                </ul>
-                            </div>
-                            <div class="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
+                            <div class="flex items-center gap-2 text-brand-green font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
                                 View Plan <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
@@ -647,26 +592,19 @@
                     <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80" alt="Industrial" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent opacity-90 transition-opacity duration-300"></div>
                     
-                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-gold group-hover:border-brand-gold transition-colors duration-300 z-10 shadow-lg">
+                    <div class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-brand-green group-hover:border-brand-green transition-colors duration-300 z-10 shadow-lg">
                         <i class="ph ph-factory text-2xl text-white group-hover:text-brand-dark transition-colors"></i>
                     </div>
 
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <span class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Safety & Efficiency</span>
+                            <span class="text-brand-green font-bold text-[10px] uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">Safety & Efficiency</span>
                             <h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight">Industrial & Warehouse</h3>
-                            <div class="w-8 h-1 bg-brand-gold mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
+                            <div class="w-8 h-1 bg-brand-green mb-3 rounded-full group-hover:w-16 transition-all duration-500"></div>
                             <p class="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
                                 Heavy-duty cleaning prioritizing safety and OSHA compliance for your operations.
                             </p>
-                            <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
-                                <ul class="overflow-hidden space-y-2 mb-0 group-hover:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Debris Removal</li>
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Floor Scrubbing</li>
-                                    <li class="flex items-center gap-2 text-xs text-slate-200 font-medium"><i class="ph ph-check-circle text-brand-gold"></i> Breakroom Hygiene</li>
-                                </ul>
-                            </div>
-                            <div class="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
+                            <div class="flex items-center gap-2 text-brand-green font-bold text-xs uppercase tracking-widest group-hover:text-white transition-colors mt-2">
                                 View Plan <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
@@ -691,7 +629,7 @@
                 
                 <div class="text-center reveal">
                     <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl border-4 border-slate-50 relative z-10 transition-transform hover:scale-110 duration-300">
-                        <span class="text-4xl font-serif font-bold text-brand-gold">01</span>
+                        <span class="text-4xl font-serif font-bold text-brand-blue">01</span>
                     </div>
                     <h3 class="text-xl font-bold text-brand-dark mb-2">Free Consultation</h3>
                     <p class="text-slate-500 text-sm px-6">We visit your site to understand your specific needs and challenges.</p>
@@ -699,15 +637,15 @@
                 
                 <div class="text-center reveal delay-100">
                     <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl border-4 border-slate-50 relative z-10 transition-transform hover:scale-110 duration-300">
-                        <span class="text-4xl font-serif font-bold text-brand-gold">02</span>
+                        <span class="text-4xl font-serif font-bold text-brand-green">02</span>
                     </div>
                     <h3 class="text-xl font-bold text-brand-dark mb-2">Custom Plan</h3>
                     <p class="text-slate-500 text-sm px-6">We build a checklist and schedule tailored to your facility.</p>
                 </div>
                 
                 <div class="text-center reveal delay-200">
-                    <div class="w-24 h-24 bg-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-brand-gold/30 relative z-10 transition-transform hover:scale-110 duration-300">
-                        <span class="text-4xl font-serif font-bold text-brand-dark">03</span>
+                    <div class="w-24 h-24 bg-brand-blue rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-brand-blue/30 relative z-10 transition-transform hover:scale-110 duration-300">
+                        <span class="text-4xl font-serif font-bold text-white">03</span>
                     </div>
                     <h3 class="text-xl font-bold text-brand-dark mb-2">Consistent Clean</h3>
                     <p class="text-slate-500 text-sm px-6">Our vetted team delivers spotless results, every single time.</p>
@@ -715,7 +653,7 @@
             </div>
             
             <div class="text-center mt-12 reveal">
-                <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'})" class="btn-gold px-10 py-4 rounded font-bold uppercase tracking-widest text-brand-dark hover:shadow-2xl transition-shadow">Start Now</button>
+                <button onclick="document.getElementById('quote-section').scrollIntoView({behavior: 'smooth'})" class="btn-primary px-10 py-4 rounded font-bold uppercase tracking-widest text-white hover:shadow-2xl transition-shadow">Start Now</button>
             </div>
         </div>
     </section>
@@ -724,59 +662,59 @@
     <section id="why-us" class="py-16 md:py-24 bg-brand-dark relative text-white overflow-hidden parallax-section" style="background-image: linear-gradient(rgba(11, 17, 32, 0.95), rgba(11, 17, 32, 0.98)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
         
         <!-- Decoration -->
-        <div class="absolute -left-20 top-40 w-80 h-80 bg-brand-gold/10 blur-[100px] rounded-full"></div>
+        <div class="absolute -left-20 top-40 w-80 h-80 bg-brand-green/10 blur-[100px] rounded-full"></div>
         
         <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div class="reveal">
-                <div class="inline-block border border-brand-gold/30 px-4 py-2 rounded-full text-brand-gold text-xs font-bold uppercase tracking-widest mb-6">The LB Standard</div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight">Reliability You Can <br><span class="text-gold-gradient italic">Set Your Clock By.</span></h2>
+                <div class="inline-block border border-brand-green/30 px-4 py-2 rounded-full text-brand-green text-xs font-bold uppercase tracking-widest mb-6">The LB Standard</div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight">Reliability You Can <br><span class="text-gradient italic">Set Your Clock By.</span></h2>
                 <p class="text-slate-400 mb-8 leading-relaxed text-lg">We understand that missed cleanings mean disrupted workflows. Our team is vetted, trained, and monitored to ensure consistency.</p>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="bg-white/5 border border-white/5 p-6 rounded-lg hover:border-brand-gold/50 transition-colors group">
-                        <i class="ph ph-shield-check text-3xl text-brand-gold mb-3 group-hover:scale-110 transition-transform block"></i>
+                    <div class="bg-white/5 border border-white/5 p-6 rounded-lg hover:border-brand-green/50 transition-colors group">
+                        <i class="ph ph-shield-check text-3xl text-brand-green mb-3 group-hover:scale-110 transition-transform block"></i>
                         <h4 class="font-bold mb-1">Fully Insured</h4>
                         <p class="text-xs text-slate-400">Liability & Workers Comp coverage.</p>
                     </div>
-                    <div class="bg-white/5 border border-white/5 p-6 rounded-lg hover:border-brand-gold/50 transition-colors group">
-                        <i class="ph ph-user-check text-3xl text-brand-gold mb-3 group-hover:scale-110 transition-transform block"></i>
+                    <div class="bg-white/5 border border-white/5 p-6 rounded-lg hover:border-brand-green/50 transition-colors group">
+                        <i class="ph ph-user-check text-3xl text-brand-green mb-3 group-hover:scale-110 transition-transform block"></i>
                         <h4 class="font-bold mb-1">Vetted Staff</h4>
                         <p class="text-xs text-slate-400">Background checks on all cleaners.</p>
                     </div>
                 </div>
                 
                 <div class="mt-8 flex items-center gap-4">
-                     <div class="flex items-center gap-2 px-4 py-2 bg-brand-gold/10 rounded-full border border-brand-gold/20 backdrop-blur-md">
-                        <i class="ph ph-check-circle text-brand-gold"></i>
-                        <span class="text-xs font-bold text-brand-gold uppercase">100% Satisfaction Guarantee</span>
+                     <div class="flex items-center gap-2 px-4 py-2 bg-brand-green/10 rounded-full border border-brand-green/20 backdrop-blur-md">
+                        <i class="ph ph-check-circle text-brand-green"></i>
+                        <span class="text-xs font-bold text-brand-green uppercase">100% Satisfaction Guarantee</span>
                      </div>
                 </div>
             </div>
             
             <div class="relative reveal delay-200 flex justify-center items-center py-10 md:py-0">
                 <!-- Decorative Glow Behind SVG -->
-                <div class="absolute inset-0 bg-brand-gold/5 rounded-full blur-3xl transform scale-75"></div>
+                <div class="absolute inset-0 bg-brand-green/5 rounded-full blur-3xl transform scale-75"></div>
                 
                 <!-- CUSTOM SVG ILLUSTRATION: SHIELD & QUALITY -->
                 <svg viewBox="0 0 400 400" class="relative w-full max-w-md h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- Outer Circle/Shield Base -->
-                    <circle cx="200" cy="200" r="180" fill="#162032" fill-opacity="0.5" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="10 10" class="animate-[spin_60s_linear_infinite]"/>
+                    <circle cx="200" cy="200" r="180" fill="#162032" fill-opacity="0.5" stroke="#78BE20" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="10 10" class="animate-[spin_60s_linear_infinite]"/>
                     
                     <!-- Main Shield -->
-                    <path d="M200 80C200 80 320 110 320 200C320 280 200 330 200 330C200 330 80 280 80 200C80 110 200 80 200 80Z" fill="url(#shield_gradient)" stroke="#D4AF37" stroke-width="2"/>
+                    <path d="M200 80C200 80 320 110 320 200C320 280 200 330 200 330C200 330 80 280 80 200C80 110 200 80 200 80Z" fill="url(#shield_gradient)" stroke="#78BE20" stroke-width="2"/>
                     
                     <!-- Checkmark -->
-                    <path d="M150 200L185 235L250 165" stroke="#D4AF37" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M150 200L185 235L250 165" stroke="#78BE20" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
                     
                     <!-- Sparkle 1 -->
                     <path d="M330 100L335 85L340 100L355 105L340 110L335 125L330 110L315 105L330 100Z" fill="#FFF" class="animate-pulse"/>
                     
                     <!-- Sparkle 2 -->
-                    <path d="M70 280L75 265L80 280L95 285L80 290L75 305L70 290L55 285L70 280Z" fill="#D4AF37" class="animate-pulse" style="animation-delay: 1s"/>
+                    <path d="M70 280L75 265L80 280L95 285L80 290L75 305L70 290L55 285L70 280Z" fill="#78BE20" class="animate-pulse" style="animation-delay: 1s"/>
 
                     <!-- User Icon Badge -->
-                    <circle cx="200" cy="140" r="20" fill="#D4AF37" fill-opacity="0.2"/>
-                    <path d="M200 130C205.523 130 210 134.477 210 140C210 145.523 205.523 150 200 150C194.477 150 190 145.523 190 140C190 134.477 194.477 130 200 130ZM200 154C208.837 154 216 157.582 216 162V164H184V162C184 157.582 191.163 154 200 154Z" fill="#D4AF37"/>
+                    <circle cx="200" cy="140" r="20" fill="#78BE20" fill-opacity="0.2"/>
+                    <path d="M200 130C205.523 130 210 134.477 210 140C210 145.523 205.523 150 200 150C194.477 150 190 145.523 190 140C190 134.477 194.477 130 200 130ZM200 154C208.837 154 216 157.582 216 162V164H184V162C184 157.582 191.163 154 200 154Z" fill="#78BE20"/>
 
                     <defs>
                         <linearGradient id="shield_gradient" x1="200" y1="80" x2="200" y2="330" gradientUnits="userSpaceOnUse">
@@ -799,7 +737,7 @@
             
             <div class="space-y-4 reveal">
                 <!-- FAQ 1 -->
-                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-green/30 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
                         <span>Are you insured and bonded in Georgia?</span>
                         <span class="transition group-open:rotate-180">
@@ -812,7 +750,7 @@
                 </details>
                 
                 <!-- FAQ 2 -->
-                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-green/30 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
                         <span>How quickly can you start service?</span>
                         <span class="transition group-open:rotate-180">
@@ -825,7 +763,7 @@
                 </details>
 
                 <!-- FAQ 3 -->
-                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-green/30 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
                         <span>Do I need to sign a long-term contract?</span>
                         <span class="transition group-open:rotate-180">
@@ -838,7 +776,7 @@
                 </details>
                 
                 <!-- FAQ 4 -->
-                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-green/30 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
                         <span>Do you offer eco-friendly "Green Cleaning"?</span>
                         <span class="transition group-open:rotate-180">
@@ -851,7 +789,7 @@
                 </details>
 
                 <!-- FAQ 5 -->
-                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-green/30 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
                         <span>Can you clean during business hours?</span>
                         <span class="transition group-open:rotate-180">
@@ -864,7 +802,7 @@
                 </details>
                 
                 <!-- FAQ 6 -->
-                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-green/30 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
                         <span>Do you provide the cleaning supplies?</span>
                         <span class="transition group-open:rotate-180">
@@ -877,7 +815,7 @@
                 </details>
 
                 <!-- FAQ 7 -->
-                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-gold/30 transition-all">
+                <details class="group bg-brand-surface rounded-xl border border-slate-100 open:border-brand-green/30 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-700 hover:text-brand-dark">
                         <span>What happens if I'm not satisfied?</span>
                         <span class="transition group-open:rotate-180">
@@ -896,7 +834,7 @@
     <section id="testimonials" class="py-16 md:py-24 bg-brand-surface relative overflow-hidden pause-on-hover border-t border-slate-200">
         <div class="container mx-auto px-6 mb-12">
             <div class="text-center mb-8 reveal">
-                <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] block mb-3">Client Success Stories</span>
+                <span class="text-brand-green font-bold text-xs uppercase tracking-[0.2em] block mb-3">Client Success Stories</span>
                 <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-8">What Our Clients Say</h2>
                 <!-- Badges -->
                 <div class="flex justify-center items-center gap-6 md:gap-12 flex-wrap">
@@ -919,7 +857,7 @@
                 <!-- Original Set -->
                 <div class="flex gap-8 px-4">
                     <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
-                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <div class="flex text-brand-green mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
                         <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"LB Cleaners transformed our office. The attention to detail is unmatched, and their team is incredibly professional and discreet."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">SJ</div>
@@ -930,7 +868,7 @@
                         </div>
                     </div>
                     <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
-                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <div class="flex text-brand-green mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
                         <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"Consistent quality every single week. Highly recommended for any medical facility needing strict sanitation."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">DR</div>
@@ -941,7 +879,7 @@
                         </div>
                     </div>
                      <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
-                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <div class="flex text-brand-green mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
                         <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"Fast response time and excellent customer service. They truly care about their clients."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">MK</div>
@@ -955,7 +893,7 @@
                  <!-- Duplicate Set for loop -->
                 <div class="flex gap-8 px-4">
                     <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
-                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <div class="flex text-brand-green mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
                         <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"LB Cleaners transformed our office. The attention to detail is unmatched, and their team is incredibly professional and discreet."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">SJ</div>
@@ -966,7 +904,7 @@
                         </div>
                     </div>
                     <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
-                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <div class="flex text-brand-green mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
                         <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"Consistent quality every single week. Highly recommended for any medical facility needing strict sanitation."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">DR</div>
@@ -977,7 +915,7 @@
                         </div>
                     </div>
                      <div class="w-[300px] md:w-[400px] bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-lg shrink-0">
-                        <div class="flex text-brand-gold mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
+                        <div class="flex text-brand-green mb-4 text-sm"><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i></div>
                         <p class="text-slate-600 italic mb-6 leading-relaxed text-sm md:text-base">"Fast response time and excellent customer service. They truly care about their clients."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-brand-dark">MK</div>
@@ -992,23 +930,52 @@
         </div>
     </section>
 
-    <!-- Bottom CTA Section -->
-    <section id="contact" class="py-16 md:py-24 bg-brand-surface relative">
+    <!-- Bottom CTA Section (QUOTE SECTION) -->
+    <section id="quote-section" class="py-16 md:py-24 bg-brand-surface relative">
         <div class="container mx-auto px-6 max-w-4xl">
-            <div class="bg-gradient-to-br from-brand-navy to-brand-dark rounded-2xl shadow-2xl p-8 md:p-16 text-center relative overflow-hidden reveal group">
+            <div class="bg-gradient-to-br from-brand-blue to-brand-navy rounded-2xl shadow-2xl p-8 md:p-16 text-center relative overflow-hidden reveal group">
                 <!-- Background Decoration -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-brand-gold/20 transition-colors duration-700"></div>
-                <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-green/20 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-brand-green/30 transition-colors duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-green/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
 
                 <h2 class="text-3xl md:text-5xl font-serif text-white mb-6 relative z-10">Ready for a Cleaner Workspace?</h2>
-                <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">Get a free, no-obligation quote today. It takes less than 60 seconds.</p>
+                <p class="text-slate-100 text-lg mb-10 max-w-2xl mx-auto relative z-10">Get a free, no-obligation quote today. It takes less than 60 seconds.</p>
+
+                <!-- MAIN CONTACT FORM (Visible on Mobile & Desktop) -->
+                <div class="bg-white rounded-xl p-6 md:p-8 text-left max-w-lg mx-auto shadow-xl relative z-10">
+                    <form id="bottomForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Company</label>
+                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 px-4 text-slate-700 focus:border-brand-green focus:outline-none transition-all" placeholder="Company Name">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Name</label>
+                                <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 px-4 text-slate-700 focus:border-brand-green focus:outline-none transition-all" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Phone</label>
+                                <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 px-4 text-slate-700 focus:border-brand-green focus:outline-none transition-all" placeholder="(555)...">
+                            </div>
+                        </div>
+                         <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Service Needed</label>
+                            <select class="w-full bg-slate-50 border border-slate-200 rounded-lg py-3 px-4 text-slate-700 focus:border-brand-green focus:outline-none transition-all cursor-pointer">
+                                <option>Daily/Weekly Office Cleaning</option>
+                                <option>Deep Cleaning</option>
+                                <option>Floor Care</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-accent w-full font-bold py-3.5 rounded-lg shadow-md uppercase tracking-wider text-sm mt-2 hover:scale-[1.02] transition-transform">
+                            Send Request
+                        </button>
+                    </form>
+                </div>
                 
-                <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-                    <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'})" class="btn-gold text-brand-dark px-10 py-4 rounded-lg font-bold uppercase tracking-widest shadow-lg">
-                        Get Online Quote
-                    </button>
-                    <a href="tel:+14703804785" class="bg-transparent border border-white/20 text-white px-8 py-4 rounded-lg font-bold uppercase tracking-widest hover:bg-white/10 transition-all flex items-center justify-center gap-2">
-                        <i class="ph ph-phone"></i> Call +1 (470) 380-4785
+                <div class="flex justify-center mt-8 relative z-10">
+                    <a href="tel:+14703804785" class="text-white/80 hover:text-white flex items-center gap-2 text-sm font-bold transition-colors">
+                        <i class="ph ph-phone"></i> Or Call +1 (470) 380-4785
                     </a>
                 </div>
             </div>
@@ -1026,7 +993,7 @@
                     <p class="text-slate-500 text-sm">Professional commercial cleaning services dedicated to excellence. Licensed, Insured, Trusted in Atlanta.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-4 text-brand-gold text-sm uppercase tracking-wider">Services</h4>
+                    <h4 class="font-bold mb-4 text-brand-green text-sm uppercase tracking-wider">Services</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
                         <li><a href="#" class="hover:text-white transition-colors">Office Cleaning</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Janitorial Services</a></li>
@@ -1035,7 +1002,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-4 text-brand-gold text-sm uppercase tracking-wider">Company</h4>
+                    <h4 class="font-bold mb-4 text-brand-green text-sm uppercase tracking-wider">Company</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
                         <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
                         <li><a href="#testimonials" class="hover:text-white transition-colors">Reviews</a></li>
@@ -1044,8 +1011,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-4 text-brand-gold text-sm uppercase tracking-wider">Contact</h4>
-                    <a href="tel:+14703804785" class="text-xl font-bold mb-1 block hover:text-brand-gold transition-colors">+1 (470) 380-4785</a>
+                    <h4 class="font-bold mb-4 text-brand-green text-sm uppercase tracking-wider">Contact</h4>
+                    <a href="tel:+14703804785" class="text-xl font-bold mb-1 block hover:text-brand-green transition-colors">+1 (470) 380-4785</a>
                     <a href="mailto:lbcleanersandservices@gmail.com" class="text-sm text-slate-400 hover:text-white transition-colors">lbcleanersandservices@gmail.com</a>
                     <p class="text-sm text-slate-400 mt-2">Mon-Fri: 8am - 6pm</p>
                 </div>
@@ -1064,20 +1031,20 @@
     <div id="successModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-brand-dark/90 backdrop-blur-sm modal-backdrop" onclick="closeModal()"></div>
         <div class="modal-content bg-white rounded-3xl shadow-2xl w-full max-w-md relative z-10 overflow-hidden transform modal-animate-enter" id="modalContent">
-            <div class="bg-gradient-to-r from-brand-gold to-yellow-400 h-2 w-full absolute top-0 left-0"></div>
+            <div class="bg-gradient-to-r from-brand-green to-teal-400 h-2 w-full absolute top-0 left-0"></div>
             <div class="p-6 md:p-8 text-center relative">
                 <div class="success-checkmark mb-6">
-                    <div class="check-icon relative border-brand-gold text-brand-gold"></div>
-                    <i class="ph ph-check text-5xl text-brand-gold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                    <div class="check-icon relative border-brand-green text-brand-green"></div>
+                    <i class="ph ph-check text-5xl text-brand-green absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
                 </div>
                 
                 <h3 class="text-brand-dark font-serif font-bold text-2xl md:text-3xl mb-2 stagger-in">Request Received!</h3>
                 <p class="text-slate-500 text-sm md:text-base mb-8 stagger-in delay-100">We've got your details. One of our cleaning specialists will be in touch shortly.</p>
                 
-                <div class="bg-brand-surface border border-brand-gold/20 rounded-2xl p-5 md:p-6 mb-6 shadow-sm relative overflow-hidden group hover:shadow-md transition-all stagger-in delay-200">
-                    <div class="absolute top-0 right-0 bg-brand-gold/10 text-brand-dark text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Fastest Way</div>
+                <div class="bg-brand-surface border border-brand-green/20 rounded-2xl p-5 md:p-6 mb-6 shadow-sm relative overflow-hidden group hover:shadow-md transition-all stagger-in delay-200">
+                    <div class="absolute top-0 right-0 bg-brand-green/10 text-brand-dark text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Fastest Way</div>
                     <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-1">Need help right now?</p>
-                    <a href="tel:+14703804785" class="block w-full text-brand-dark hover:text-brand-gold font-black text-xl md:text-2xl transition-colors break-words">
+                    <a href="tel:+14703804785" class="block w-full text-brand-dark hover:text-brand-green font-black text-xl md:text-2xl transition-colors break-words">
                         +1 (470) 380-4785
                     </a>
                     <p class="text-xs text-green-600 font-medium mt-1 flex items-center justify-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Available Now</p>
@@ -1103,7 +1070,7 @@
                 <img id="modalImg" src="" alt="Industry" class="absolute inset-0 w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent lg:bg-gradient-to-r"></div>
                 <div class="absolute bottom-6 left-6 text-white lg:hidden pr-10">
-                    <span class="text-brand-gold font-bold text-xs uppercase tracking-widest stagger-in">Selected Industry</span>
+                    <span class="text-brand-green font-bold text-xs uppercase tracking-widest stagger-in">Selected Industry</span>
                     <h3 id="modalTitleMobile" class="text-2xl md:text-3xl font-serif font-bold mt-1 stagger-in delay-100 leading-tight"></h3>
                 </div>
             </div>
@@ -1111,16 +1078,16 @@
             <!-- Content Side -->
             <div class="w-full lg:w-7/12 p-6 md:p-8 lg:p-12 bg-white flex flex-col">
                 <div class="hidden lg:block mb-6">
-                    <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] stagger-in">Specialized Cleaning</span>
+                    <span class="text-brand-green font-bold text-xs uppercase tracking-[0.2em] stagger-in">Specialized Cleaning</span>
                     <h3 id="modalTitle" class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mt-2 mb-4 stagger-in delay-100"></h3>
-                    <div class="w-20 h-1.5 bg-brand-gold rounded-full stagger-in delay-200"></div>
+                    <div class="w-20 h-1.5 bg-brand-green rounded-full stagger-in delay-200"></div>
                 </div>
                 
                 <p id="modalDesc" class="text-slate-600 text-base md:text-lg leading-relaxed mb-8 stagger-in delay-300"></p>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 stagger-in delay-300">
                     <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-surface border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-gold shadow-sm shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-green shadow-sm shrink-0">
                             <i class="ph ph-check-circle text-xl"></i>
                         </div>
                         <div>
@@ -1129,7 +1096,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-surface border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-gold shadow-sm shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-green shadow-sm shrink-0">
                             <i class="ph ph-certificate text-xl"></i>
                         </div>
                         <div>
@@ -1138,7 +1105,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-surface border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-gold shadow-sm shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-green shadow-sm shrink-0">
                             <i class="ph ph-clock text-xl"></i>
                         </div>
                         <div>
@@ -1147,7 +1114,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-surface border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-gold shadow-sm shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-green shadow-sm shrink-0">
                             <i class="ph ph-shield-check text-xl"></i>
                         </div>
                         <div>
@@ -1158,11 +1125,11 @@
                 </div>
 
                 <div class="mt-auto pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-4 items-center stagger-in delay-300">
-                    <button onclick="document.getElementById('heroForm').scrollIntoView({behavior: 'smooth'}); closeIndustryModal();" class="btn-gold w-full sm:w-auto px-6 py-4 rounded-xl text-brand-dark font-bold uppercase tracking-widest shadow-xl hover:scale-105 transition-transform flex items-center justify-center gap-2 text-xs md:text-sm">
+                    <button onclick="document.getElementById('quote-section').scrollIntoView({behavior: 'smooth'}); closeIndustryModal();" class="btn-primary w-full sm:w-auto px-6 py-4 rounded-xl text-white font-bold uppercase tracking-widest shadow-xl hover:scale-105 transition-transform flex items-center justify-center gap-2 text-xs md:text-sm">
                         <span>Get Custom Quote</span> <i class="ph ph-arrow-right"></i>
                     </button>
                     <p class="text-xs text-slate-400 text-center sm:text-left flex items-center gap-1 justify-center sm:justify-start">
-                        <i class="ph ph-info text-brand-gold"></i> Free on-site assessment.
+                        <i class="ph ph-info text-brand-green"></i> Free on-site assessment.
                     </p>
                 </div>
             </div>
@@ -1192,7 +1159,7 @@
                     <button onclick="closeChat()" class="text-slate-300 hover:text-slate-500"><i class="ph ph-x"></i></button>
                 </div>
                 <p class="text-xs md:text-sm text-slate-600 mb-3 leading-relaxed">Hi there! 👋 Need a quick quote for your office cleaning in Atlanta?</p>
-                <a href="#contact" onclick="closeChat()" class="block text-center bg-brand-gold text-brand-dark text-xs font-bold py-2.5 rounded-lg uppercase tracking-wide hover:bg-yellow-400 transition-colors shadow-sm">Get Free Quote</a>
+                <a href="#contact" onclick="closeChat()" class="block text-center bg-brand-green text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wide hover:bg-green-600 transition-colors shadow-sm">Get Free Quote</a>
             </div>
         </div>
 
@@ -1311,7 +1278,7 @@
         function handleFormSubmit(e) {
             e.preventDefault(); 
             const modal = document.getElementById('successModal');
-            const modalContent = document.getElementById('modalContent');
+            const modalContent = document.getElementById('successModal').querySelector('.modal-content');
             modal.classList.remove('hidden');
             toggleBodyScroll(true);
             
@@ -1329,6 +1296,7 @@
             modal.classList.add('hidden');
             toggleBodyScroll(false);
             document.getElementById('heroForm').reset();
+            document.getElementById('bottomForm').reset();
         }
 
         // Industry Modal Logic
