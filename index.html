@@ -950,14 +950,15 @@
     </section>
 
     <!-- Bottom CTA Section (QUOTE SECTION) -->
-    <section id="quote-section" class="py-16 md:py-24 bg-brand-surface relative">
-        <div class="container mx-auto px-4 lg:px-6 max-w-5xl">
-            <div class="bg-gradient-to-br from-brand-blue to-brand-navy rounded-3xl shadow-2xl p-6 md:p-16 text-center relative overflow-hidden reveal group border border-white/10">
+    <section id="quote-section" class="py-12 md:py-24 bg-brand-surface relative">
+        <div class="container mx-auto px-2 lg:px-6 max-w-5xl">
+            <!-- Adjusted padding: px-3 py-10 for mobile to maximize width -->
+            <div class="bg-gradient-to-br from-brand-blue to-brand-navy rounded-2xl md:rounded-3xl shadow-2xl px-3 py-10 md:p-16 text-center relative overflow-hidden reveal group border border-white/10">
                 <!-- Background Decoration -->
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand-green/20 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-brand-green/30 transition-colors duration-700"></div>
                 <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-green/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
 
-                <div class="relative z-10 mb-10">
+                <div class="relative z-10 mb-8 md:mb-10">
                     <span class="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-brand-green font-bold text-[10px] uppercase tracking-widest mb-4 backdrop-blur-sm">Start Your Project</span>
                     <h2 class="text-3xl md:text-5xl font-serif text-white mb-4">Ready for a Cleaner Workspace?</h2>
                     <p class="text-slate-100 text-base md:text-lg max-w-2xl mx-auto">Get a free, no-obligation quote today. It takes less than 60 seconds to upgrade your office standards.</p>
@@ -965,7 +966,7 @@
 
                 <!-- MAIN CONTACT FORM (Optimized for Mobile Conversion) -->
                 <!-- Removed max-w constraints on mobile to let it breathe -->
-                <div class="bg-white rounded-2xl p-6 md:p-10 text-left w-full md:max-w-lg mx-auto shadow-2xl relative z-10 border border-slate-100">
+                <div class="bg-white rounded-xl md:rounded-2xl p-5 md:p-10 text-left w-full md:max-w-lg mx-auto shadow-2xl relative z-10 border border-slate-100">
                     <div class="text-center mb-6 md:hidden">
                         <h3 class="text-brand-dark font-bold text-xl font-serif">Request Free Quote</h3>
                         <p class="text-slate-400 text-xs mt-1">Fill out the form below</p>
@@ -977,7 +978,7 @@
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1.5 ml-1">Company Name</label>
                             <div class="relative group input-ring rounded-xl transition-all duration-300">
                                 <i class="ph ph-buildings absolute left-4 top-4 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-xl py-4 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="Ex: Tech Solutions Inc.">
+                                <input type="text" required autocomplete="organization" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="Ex: Tech Solutions Inc.">
                             </div>
                         </div>
 
@@ -987,14 +988,14 @@
                                 <label class="block text-xs font-bold text-slate-500 uppercase mb-1.5 ml-1">Contact Name</label>
                                 <div class="relative group input-ring rounded-xl transition-all duration-300">
                                     <i class="ph ph-user absolute left-4 top-4 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                    <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-xl py-4 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="Your Name">
+                                    <input type="text" required autocomplete="name" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="Your Name">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-500 uppercase mb-1.5 ml-1">Phone Number</label>
                                 <div class="relative group input-ring rounded-xl transition-all duration-300">
                                     <i class="ph ph-phone absolute left-4 top-4 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                    <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-xl py-4 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="(555)...">
+                                    <input type="tel" required autocomplete="tel" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="(555)...">
                                 </div>
                             </div>
                         </div>
@@ -1004,7 +1005,7 @@
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1.5 ml-1">Service Needed</label>
                             <div class="relative group input-ring rounded-xl transition-all duration-300">
                                 <i class="ph ph-broom absolute left-4 top-4 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                <select class="w-full bg-slate-50 border border-slate-200 rounded-xl py-4 pl-12 pr-10 text-base text-slate-700 font-medium focus:bg-white focus:outline-none transition-all cursor-pointer shadow-sm appearance-none bg-white">
+                                <select class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-10 text-base text-slate-700 font-medium focus:bg-white focus:outline-none transition-all cursor-pointer shadow-sm appearance-none bg-white">
                                     <option>Daily/Weekly Office Cleaning</option>
                                     <option>Deep Cleaning</option>
                                     <option>Floor Care</option>
