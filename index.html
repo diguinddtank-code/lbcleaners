@@ -419,7 +419,7 @@
                                     <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Company / Organization</label>
                                     <div class="relative group input-ring rounded-lg transition-all duration-300">
                                         <i class="ph ph-buildings absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                        <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-4 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Ex: Tech Solutions Inc.">
+                                        <input type="text" name="company" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-4 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Ex: Tech Solutions Inc.">
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-3">
@@ -427,14 +427,14 @@
                                         <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Contact Name</label>
                                         <div class="relative group input-ring rounded-lg">
                                             <i class="ph ph-user absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-green transition-colors"></i>
-                                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-9 pr-3 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Name">
+                                            <input type="text" name="name" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-9 pr-3 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="Name">
                                         </div>
                                     </div>
                                     <div>
                                         <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Phone Number</label>
                                         <div class="relative group input-ring rounded-lg">
                                             <i class="ph ph-phone absolute left-3 top-3 text-slate-400 text-base group-focus-within:text-brand-green transition-colors"></i>
-                                            <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-9 pr-3 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="(555)...">
+                                            <input type="tel" name="phone" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-9 pr-3 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="(555)...">
                                         </div>
                                     </div>
                                 </div>
@@ -442,14 +442,14 @@
                                     <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">Email Address</label>
                                     <div class="relative group input-ring rounded-lg transition-all duration-300">
                                         <i class="ph ph-envelope absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                        <input type="email" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-4 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="john@company.com">
+                                        <input type="email" name="email" required class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-4 text-xs lg:text-sm text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all" placeholder="john@company.com">
                                     </div>
                                 </div>
                                 <div>
                                     <label class="block text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 ml-1">What do you need?</label>
                                     <div class="relative group input-ring rounded-lg">
                                         <i class="ph ph-broom absolute left-3 top-3 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                        <select class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-10 text-xs lg:text-sm text-slate-700 font-medium focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer">
+                                        <select name="service" class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2.5 lg:py-3 pl-10 pr-10 text-xs lg:text-sm text-slate-700 font-medium focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer">
                                             <option>Daily/Weekly Office Cleaning</option>
                                             <option>Deep Cleaning / One-Time</option>
                                             <option>Floor Care (Strip & Wax)</option>
@@ -1017,7 +1017,7 @@
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1.5 ml-1">Company Name</label>
                             <div class="relative group input-ring rounded-xl transition-all duration-300">
                                 <i class="ph ph-buildings absolute left-4 top-4 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                <input type="text" required autocomplete="organization" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="Ex: Tech Solutions Inc.">
+                                <input type="text" name="company" required autocomplete="organization" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="Ex: Tech Solutions Inc.">
                             </div>
                         </div>
 
@@ -1027,14 +1027,14 @@
                                 <label class="block text-xs font-bold text-slate-500 uppercase mb-1.5 ml-1">Contact Name</label>
                                 <div class="relative group input-ring rounded-xl transition-all duration-300">
                                     <i class="ph ph-user absolute left-4 top-4 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                    <input type="text" required autocomplete="name" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="Your Name">
+                                    <input type="text" name="name" required autocomplete="name" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="Your Name">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-500 uppercase mb-1.5 ml-1">Phone Number</label>
                                 <div class="relative group input-ring rounded-xl transition-all duration-300">
                                     <i class="ph ph-phone absolute left-4 top-4 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                    <input type="tel" required autocomplete="tel" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="(555)...">
+                                    <input type="tel" name="phone" required autocomplete="tel" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="(555)...">
                                 </div>
                             </div>
                         </div>
@@ -1044,7 +1044,7 @@
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1.5 ml-1">Email Address</label>
                             <div class="relative group input-ring rounded-xl transition-all duration-300">
                                 <i class="ph ph-envelope absolute left-4 top-4 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                <input type="email" required autocomplete="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="john@company.com">
+                                <input type="email" name="email" required autocomplete="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-base text-slate-700 placeholder-slate-400 font-medium focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="john@company.com">
                             </div>
                         </div>
                         
@@ -1053,7 +1053,7 @@
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1.5 ml-1">Service Needed</label>
                             <div class="relative group input-ring rounded-xl transition-all duration-300">
                                 <i class="ph ph-broom absolute left-4 top-4 text-slate-400 text-lg group-focus-within:text-brand-green transition-colors"></i>
-                                <select class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-10 text-base text-slate-700 font-medium focus:bg-white focus:outline-none transition-all cursor-pointer shadow-sm appearance-none bg-white">
+                                <select name="service" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-12 pr-10 text-base text-slate-700 font-medium focus:bg-white focus:outline-none transition-all cursor-pointer shadow-sm appearance-none bg-white">
                                     <option>Daily/Weekly Office Cleaning</option>
                                     <option>Deep Cleaning</option>
                                     <option>Floor Care</option>
@@ -1366,6 +1366,13 @@
                 navbar.classList.add('bg-transparent', 'py-4', 'border-white/10', 'text-white');
                 navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-b', 'border-slate-50', 'text-slate-800');
                 
+                // Apply border-none specifically for top state (to override any lingering border-b from scroll)
+                navbar.classList.add('border-none'); // Remove border on mobile at top
+                navbar.classList.add('lg:border-b'); // Keep subtle border on desktop at top if desired, or remove too. User asked to remove stripe on mobile.
+                
+                // Better approach: reset classes fully
+                // Let's stick to the HTML classes logic: border-none lg:border-b lg:border-white/10
+                
                 navContainer.classList.add('lg:h-24');
                 navContainer.classList.remove('lg:h-20');
 
@@ -1413,21 +1420,51 @@
 
         // Form Handling
         function handleFormSubmit(e) {
-            e.preventDefault(); 
-            const modal = document.getElementById('successModal');
-            const modalContent = document.getElementById('successModal').querySelector('.modal-content');
-            modal.classList.remove('hidden');
-            toggleBodyScroll(true);
-
-            // Call Google Ads Conversion
-            gtag_report_conversion();
+            e.preventDefault();
             
-            // Reset animations
-            const animatedElements = modalContent.querySelectorAll('.stagger-in');
-            animatedElements.forEach(el => {
-                el.style.animation = 'none';
-                el.offsetHeight; /* trigger reflow */
-                el.style.animation = null; 
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+
+            const formData = new FormData(form);
+
+            fetch("https://formsubmit.co/ajax/lbcleanersandservices@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Success logic
+                const modal = document.getElementById('successModal');
+                const modalContent = document.getElementById('successModal').querySelector('.modal-content');
+                modal.classList.remove('hidden');
+                toggleBodyScroll(true);
+
+                // Call Google Ads Conversion
+                gtag_report_conversion();
+                
+                // Reset animations
+                const animatedElements = modalContent.querySelectorAll('.stagger-in');
+                animatedElements.forEach(el => {
+                    el.style.animation = 'none';
+                    el.offsetHeight; /* trigger reflow */
+                    el.style.animation = null; 
+                });
+
+                // Reset form
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error);
+                alert("Something went wrong. Please try again or call us.");
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
             });
         }
 
